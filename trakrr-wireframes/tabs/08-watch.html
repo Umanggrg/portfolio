@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>08 — Apple Watch</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  /* WATCH — Series 10, 46mm. CSS-faked bezel, 1.96" display ratio ≈ 410×502 internal. We draw at 196×238 → 2x via scale for clarity. */
+  .watch { width: 240px; height: 286px; background: #0a0a0a; border-radius: 52px; padding: 9px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.6), inset 0 0 0 2px #1f1f1f, inset 0 0 0 3px #2a2a2a; position: relative; margin: 0 auto; flex: 0 0 auto; }
+  .watch::before { content:""; position:absolute; right:-3px; top:90px; width:5px; height:30px; background:#1a1a1a; border-radius:2px; }
+  .watch::after { content:""; position:absolute; right:-3px; top:140px; width:4px; height:18px; background:#1a1a1a; border-radius:2px; }
+  .w-screen { width: 100%; height: 100%; background: #000; border-radius: 44px; overflow: hidden; position: relative; color: #fff; font-family: -apple-system, "SF Pro Rounded"; padding: 18px 16px 12px; box-sizing: border-box; display: flex; flex-direction: column; }
+  .w-label { font-family: var(--script); font-size: 16px; color: var(--ink); text-align: center; margin-top: 8px; max-width: 240px; }
+  .w-label strong { display: block; font-family: var(--ui); font-weight: 700; font-size: 11px; letter-spacing: .04em; color: #000; }
+  .w-num { font-family: -apple-system, "SF Pro Rounded"; font-weight: 800; font-feature-settings: "tnum"; letter-spacing: -.02em; line-height: 1; }
+  .w-caps { font-family: -apple-system; font-weight: 600; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; opacity: .55; }
+  .w-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px 16px; justify-items: center; margin-top: 14px; }
+  .w-stage { display: flex; flex-direction: column; align-items: center; }
+  .complic { width: 200px; height: 200px; border-radius: 50%; background: #000; position: relative; box-shadow: inset 0 0 0 2px #1f1f1f; margin: 0 auto; color: #fff; font-family: -apple-system, "SF Pro Rounded"; }
+  .live-act { width: 280px; background: #000; border-radius: 32px; padding: 14px 18px; color: #fff; font-family: -apple-system, "SF Pro Rounded"; box-shadow: 0 20px 40px -10px rgba(0,0,0,.4); }
+  .pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 999px; font-family: -apple-system; font-weight: 700; font-size: 9px; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">08 · Flow</div>
+    <h1>Apple Watch — the differentiator</h1>
+    <p>The watch is where the race lives. Phone gets the recap; the wrist gets the race. <strong>Glanceable typography</strong>, single hero metric per page, color-coded by intent. Built for arm pump, sweat, blurred vision at 180 bpm.</p>
+    <p><strong>Hierarchy:</strong> always-on shows current segment's primary metric → glance for ghost delta → wait for an alert. Never make the athlete <em>think</em> mid-station.</p>
+  </header>
+
+  <h2 class="section"><span>The 3 race pages</span><span class="num">08.1</span></h2>
+  <p style="font-family:var(--script);font-size:18px;color:var(--ink);max-width:760px;">Digital crown rotates between Pace, Heart, Segment. Tap to advance station. Side button = quick-pause. Always-on dims everything except the primary number.</p>
+  <div class="w-grid">
+
+    <!-- PAGE 1: PACE (RUN SEGMENT, ON PACE) -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:linear-gradient(180deg,#0a0a0a 0%, #000 100%);">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:9px;font-weight:700;letter-spacing:.04em;"><span>9:41</span><span style="display:flex;gap:4px;align-items:center;"><span style="width:6px;height:6px;background:var(--coral);border-radius:50%;animation:pulse 1.4s infinite;"></span>REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:var(--green);opacity:1;">ON PACE</div>
+          <div class="w-num" style="font-size:54px;color:var(--green);margin-top:2px;">5:42<span style="font-size:18px;opacity:.7;">/km</span></div>
+          <div style="font-size:11px;opacity:.6;margin-top:6px;">target 5:45 · −3"</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div class="w-caps">SEG 4/8</div><div class="w-num" style="font-size:14px;">RUN</div></div>
+          <div style="text-align:right;"><div class="w-caps">TOTAL</div><div class="w-num" style="font-size:14px;">38:14</div></div>
+        </div>
+      </div></div>
+      <div class="w-label"><strong>Pace · on target</strong>green hero · ghost δ</div>
+    </div>
+
+    <!-- PAGE 1b: PACE AHEAD -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span style="color:var(--coral);">●REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:#5AC8FA;opacity:1;">AHEAD ▲</div>
+          <div class="w-num" style="font-size:54px;color:#5AC8FA;">5:18<span style="font-size:18px;opacity:.7;">/km</span></div>
+          <div style="font-size:11px;opacity:.6;margin-top:6px;">target 5:45 · <span style="color:#5AC8FA;">−27"</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div class="w-caps">SEG 2/8</div><div class="w-num" style="font-size:14px;">RUN</div></div>
+          <div style="text-align:right;"><div class="w-caps">TOTAL</div><div class="w-num" style="font-size:14px;">14:22</div></div>
+        </div>
+      </div></div>
+      <div class="w-label"><strong>Pace · ahead</strong>cyan — "save it"</div>
+    </div>
+
+    <!-- PAGE 1c: PACE BEHIND -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span style="color:var(--coral);">●REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:var(--amber);opacity:1;">BEHIND ▼</div>
+          <div class="w-num" style="font-size:54px;color:var(--amber);">6:08<span style="font-size:18px;opacity:.7;">/km</span></div>
+          <div style="font-size:11px;opacity:.6;margin-top:6px;">target 5:45 · <span style="color:var(--amber);">+23"</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+          <div><div class="w-caps">SEG 6/8</div><div class="w-num" style="font-size:14px;">RUN</div></div>
+          <div style="text-align:right;"><div class="w-caps">TOTAL</div><div class="w-num" style="font-size:14px;">58:42</div></div>
+        </div>
+      </div></div>
+      <div class="w-label"><strong>Pace · behind</strong>amber — make it back</div>
+    </div>
+
+    <!-- PAGE 2: HEART -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span style="color:var(--coral);">●REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:var(--amber);opacity:1;">Z4 · THRESHOLD</div>
+          <div style="display:flex;justify-content:center;align-items:baseline;gap:6px;margin-top:2px;"><span style="font-size:22px;color:var(--coral);">♥</span><span class="w-num" style="font-size:54px;color:var(--amber);">172</span></div>
+          <div style="font-size:10px;opacity:.6;margin-top:6px;">88% max · holding</div>
+        </div>
+        <div style="display:flex;gap:2px;height:5px;margin-top:6px;">
+          <div style="flex:1;background:#3a82f7;border-radius:2px;"></div>
+          <div style="flex:1;background:var(--green);border-radius:2px;"></div>
+          <div style="flex:1;background:#FFD60A;border-radius:2px;"></div>
+          <div style="flex:2;background:var(--amber);border-radius:2px;box-shadow:0 0 0 2px rgba(255,159,10,.3);"></div>
+          <div style="flex:1;background:var(--coral);opacity:.3;border-radius:2px;"></div>
+        </div>
+      </div></div>
+      <div class="w-label"><strong>Heart</strong>zone-colored · 5-bar gauge</div>
+    </div>
+
+    <!-- PAGE 3: STATION COUNTDOWN -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span style="color:var(--coral);">●REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:var(--coral);opacity:1;">STATION 5/8</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:22px;color:#fff;line-height:1;margin-top:6px;">BURPEE</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:22px;color:#fff;line-height:1;">BROAD JUMP</div>
+          <div class="w-num" style="font-size:36px;color:var(--coral);margin-top:8px;">22<span style="font-size:14px;opacity:.6;"> /80m</span></div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:6px;height:5px;overflow:hidden;"><div style="width:28%;height:100%;background:var(--coral);"></div></div>
+      </div></div>
+      <div class="w-label"><strong>Station · in progress</strong>reps remaining · tap done</div>
+    </div>
+
+    <!-- PAGE: SEGMENT TRANSITION TAP-TO-ADVANCE -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:linear-gradient(180deg,#1a0500 0%, #000 100%);">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span style="color:var(--coral);">●REC</span></div>
+        <div style="text-align:center;margin-top:auto;margin-bottom:auto;">
+          <div class="w-caps" style="color:#fff;opacity:.7;">FINISHED STATION</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:18px;color:#fff;margin-top:4px;">Sled Push ✓</div>
+          <div class="w-num" style="font-size:36px;color:var(--coral);margin-top:8px;">1:42</div>
+          <div style="font-size:10px;color:var(--green);margin-top:2px;font-weight:700;">−8s vs target</div>
+        </div>
+        <div style="background:var(--coral);color:#fff;border-radius:14px;padding:10px;text-align:center;font-family:-apple-system;font-weight:800;font-size:12px;">Tap to start Run 5 →</div>
+      </div></div>
+      <div class="w-label"><strong>Tap to advance</strong>full-width hit · haptic</div>
+    </div>
+
+  </div>
+
+  <h2 class="section"><span>The 5 coaching cues · full-screen alerts</span><span class="num">08.2</span></h2>
+  <p style="font-family:var(--script);font-size:18px;color:var(--ink);max-width:760px;">Each cue takes over the watch for 1.4 seconds with a distinct haptic pattern. <strong>One word, max two.</strong> Color-coded so peripheral vision tells you what to do before your brain reads.</p>
+  <div class="w-grid">
+
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:radial-gradient(circle at 50% 40%, #1a4a2a 0%, #000 70%);justify-content:center;align-items:center;">
+        <div class="w-num" style="font-size:64px;color:var(--green);text-align:center;">HOLD</div>
+        <div style="font-size:11px;color:#fff;opacity:.7;text-align:center;margin-top:8px;line-height:1.3;">staying on target<br><span class="w-caps" style="opacity:.5;">PACE LOCKED</span></div>
+      </div></div>
+      <div class="w-label"><strong>HOLD</strong>green · 2 short taps · stay</div>
+    </div>
+
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:radial-gradient(circle at 50% 40%, #3a2a05 0%, #000 70%);justify-content:center;align-items:center;">
+        <div class="w-num" style="font-size:64px;color:var(--amber);text-align:center;">SLOW</div>
+        <div style="font-size:11px;color:#fff;opacity:.7;text-align:center;margin-top:8px;line-height:1.3;">HR climbing too fast<br><span class="w-caps" style="opacity:.5;">−10 BPM IN 2 MIN</span></div>
+      </div></div>
+      <div class="w-label"><strong>SLOW</strong>amber · 1 long tap · pull back</div>
+    </div>
+
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:radial-gradient(circle at 50% 40%, #4a0505 0%, #000 60%);justify-content:center;align-items:center;animation:redpulse 0.8s infinite;">
+        <div class="w-num" style="font-size:60px;color:var(--coral);text-align:center;letter-spacing:-.04em;">REDLINE</div>
+        <div style="font-size:11px;color:#fff;opacity:.85;text-align:center;margin-top:8px;line-height:1.3;">194 · max −2<br><span class="w-caps" style="opacity:.6;">EASE OR YOU BLOW</span></div>
+      </div></div>
+      <div class="w-label"><strong>REDLINE</strong>coral · 3 hard taps · DANGER</div>
+    </div>
+
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:radial-gradient(circle at 50% 40%, #052a4a 0%, #000 70%);justify-content:center;align-items:center;">
+        <div class="w-num" style="font-size:54px;color:#5AC8FA;text-align:center;">RECOVER</div>
+        <div style="font-size:11px;color:#fff;opacity:.7;text-align:center;margin-top:8px;line-height:1.3;">in transition<br><span class="w-caps" style="opacity:.5;">DROP TO Z3 BEFORE STATION</span></div>
+      </div></div>
+      <div class="w-label"><strong>RECOVER</strong>cyan · soft pulse · breathe</div>
+    </div>
+
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:radial-gradient(circle at 50% 40%, #4a2a00 0%, #000 70%);justify-content:center;align-items:center;">
+        <div class="w-num" style="font-size:64px;color:#FFD60A;text-align:center;">PUSH</div>
+        <div style="font-size:11px;color:#fff;opacity:.7;text-align:center;margin-top:8px;line-height:1.3;">last station — empty it<br><span class="w-caps" style="opacity:.5;">NOTHING LEFT IN THE TANK</span></div>
+      </div></div>
+      <div class="w-label"><strong>PUSH</strong>yellow · escalating taps · go</div>
+    </div>
+
+  </div>
+
+  <h2 class="section"><span>Complications · all watch faces</span><span class="num">08.3</span></h2>
+  <p style="font-family:var(--script);font-size:18px;color:var(--ink);max-width:760px;">A complication is a tiny widget on the watch face. We ship variants for Modular, Infograph, Corner, and Smart Stack so the app is one tap from any face.</p>
+  <div class="w-grid">
+
+    <!-- INFOGRAPH MODULAR -->
+    <div class="w-stage">
+      <div style="background:#000;border-radius:18px;padding:20px;width:200px;color:#fff;font-family:-apple-system,'SF Pro Rounded';">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div style="font-size:11px;font-weight:700;">9:41</div>
+          <div style="font-size:10px;opacity:.6;text-align:right;">SAT<br><span style="font-size:14px;font-weight:800;">9</span></div>
+        </div>
+        <div style="margin-top:14px;background:rgba(255,69,48,.15);border-radius:10px;padding:8px 10px;">
+          <div style="font-size:8px;font-weight:700;letter-spacing:.1em;color:var(--coral);">NEXT RACE</div>
+          <div style="font-size:13px;font-weight:800;color:#fff;margin-top:2px;">Sunday HYROX sim</div>
+          <div style="font-size:9px;opacity:.6;">tomorrow 9:00 AM</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:8px;">
+          <div style="flex:1;background:#1a1a1a;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;opacity:.5;">PB</div><div style="font-size:11px;font-weight:800;color:var(--coral);">1:18:42</div></div>
+          <div style="flex:1;background:#1a1a1a;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;opacity:.5;">STREAK</div><div style="font-size:11px;font-weight:800;">12 🔥</div></div>
+        </div>
+      </div>
+      <div class="w-label"><strong>Modular Large</strong>next race + PB + streak</div>
+    </div>
+
+    <!-- INFOGRAPH CIRCULAR -->
+    <div class="w-stage">
+      <div style="background:#000;width:200px;height:200px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;color:#fff;font-family:-apple-system,'SF Pro Rounded';box-shadow:inset 0 0 0 2px #1f1f1f;">
+        <!-- ring -->
+        <svg width="200" height="200" style="position:absolute;inset:0;transform:rotate(-90deg);"><circle cx="100" cy="100" r="92" fill="none" stroke="#1a1a1a" stroke-width="4"/><circle cx="100" cy="100" r="92" fill="none" stroke="var(--coral)" stroke-width="4" stroke-dasharray="578" stroke-dashoffset="170" stroke-linecap="round"/></svg>
+        <div style="text-align:center;z-index:1;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:.1em;opacity:.6;">DAYS TO RACE</div>
+          <div style="font-size:48px;font-weight:900;color:var(--coral);line-height:1;margin-top:2px;">14</div>
+          <div style="font-size:10px;opacity:.5;margin-top:4px;">Vegas Dec 23</div>
+        </div>
+      </div>
+      <div class="w-label"><strong>Infograph</strong>countdown ring · centerpiece</div>
+    </div>
+
+    <!-- CORNER -->
+    <div class="w-stage">
+      <div style="background:#000;width:200px;height:200px;border-radius:30px;position:relative;color:#fff;font-family:-apple-system,'SF Pro Rounded';box-shadow:inset 0 0 0 2px #1f1f1f;padding:18px;box-sizing:border-box;">
+        <div style="position:absolute;top:18px;left:18px;background:rgba(255,69,48,.2);border-radius:8px;padding:4px 8px;">
+          <div style="font-size:7px;font-weight:700;letter-spacing:.1em;color:var(--coral);">PB</div>
+          <div style="font-size:13px;font-weight:900;color:#fff;line-height:1;margin-top:1px;">1:18</div>
+        </div>
+        <div style="position:absolute;bottom:18px;right:18px;text-align:right;">
+          <div style="font-size:7px;font-weight:700;letter-spacing:.1em;opacity:.5;">STREAK</div>
+          <div style="font-size:14px;font-weight:900;">12<span style="font-size:10px;"> 🔥</span></div>
+        </div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:9px;opacity:.3;letter-spacing:.05em;">watch face</div>
+      </div>
+      <div class="w-label"><strong>Corner</strong>PB + streak · X-Large face</div>
+    </div>
+
+    <!-- SMART STACK WIDGET -->
+    <div class="w-stage">
+      <div style="background:#000;border-radius:22px;padding:14px;width:200px;color:#fff;font-family:-apple-system,'SF Pro Rounded';">
+        <div style="display:flex;align-items:center;gap:6px;font-size:9px;opacity:.6;letter-spacing:.05em;"><span style="width:14px;height:14px;background:var(--coral);border-radius:3px;display:inline-block;"></span>HYROX · Smart Stack</div>
+        <div style="margin-top:8px;font-size:15px;font-weight:800;">Tomorrow's race</div>
+        <div style="font-size:10px;opacity:.7;line-height:1.3;margin-top:2px;">Hydrate now. Carbs at 7am. Race at 9:00.</div>
+        <div style="display:flex;gap:4px;margin-top:10px;">
+          <div style="background:var(--coral);color:#fff;border-radius:8px;padding:5px 9px;font-size:9px;font-weight:700;">Open race</div>
+          <div style="background:#1a1a1a;color:#fff;border-radius:8px;padding:5px 9px;font-size:9px;font-weight:700;opacity:.7;">Snooze</div>
+        </div>
+      </div>
+      <div class="w-label"><strong>Smart Stack</strong>day-of pre-race prep</div>
+    </div>
+
+  </div>
+
+  <h2 class="section"><span>Live Activity · phone lock screen + Dynamic Island</span><span class="num">08.4</span></h2>
+  <p style="font-family:var(--script);font-size:18px;color:var(--ink);max-width:760px;">When the watch is running a race, the phone gets a Live Activity. The bystander (coach, parent watching, training partner) glances and knows the state instantly.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:32px;margin-top:14px;justify-content:center;">
+
+    <!-- LIVE ACTIVITY COMPACT (DYNAMIC ISLAND) -->
+    <div class="w-stage">
+      <div style="background:#0a0a0a;border-radius:18px;padding:24px 30px;width:340px;display:flex;justify-content:center;">
+        <div style="background:#000;border-radius:999px;padding:8px 18px;display:flex;align-items:center;gap:10px;color:#fff;font-family:-apple-system,'SF Pro Rounded';min-width:200px;">
+          <span style="width:6px;height:6px;background:var(--coral);border-radius:50%;animation:pulse 1.4s infinite;"></span>
+          <span style="font-size:13px;font-weight:800;">38:14</span>
+          <span style="font-size:11px;opacity:.6;">· Run 4/8</span>
+          <span style="margin-left:auto;font-size:11px;font-weight:700;color:var(--green);">5:42</span>
+        </div>
+      </div>
+      <div class="w-label"><strong>Dynamic Island · compact</strong>time · seg · pace</div>
+    </div>
+
+    <!-- LIVE ACTIVITY EXPANDED -->
+    <div class="w-stage">
+      <div class="live-act" style="border:1px solid #222;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:.1em;color:var(--coral);">●RACE LIVE · SEG 4/8</div>
+            <div style="font-size:13px;opacity:.7;margin-top:2px;">Sunday HYROX sim</div>
+          </div>
+          <div style="font-size:24px;font-weight:900;font-feature-settings:'tnum';">38:14</div>
+        </div>
+
+        <!-- 8-station progress bar -->
+        <div style="display:flex;gap:3px;margin-top:14px;">
+          <div style="flex:1;height:6px;background:var(--green);border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:var(--green);border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:var(--green);border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:var(--coral);border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:#222;border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:#222;border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:#222;border-radius:2px;"></div>
+          <div style="flex:1;height:6px;background:#222;border-radius:2px;"></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;margin-top:12px;">
+          <div><div style="font-size:8px;letter-spacing:.1em;opacity:.5;">PACE</div><div style="font-size:14px;font-weight:800;color:var(--green);">5:42/km</div></div>
+          <div><div style="font-size:8px;letter-spacing:.1em;opacity:.5;">HR</div><div style="font-size:14px;font-weight:800;">168 · Z4</div></div>
+          <div><div style="font-size:8px;letter-spacing:.1em;opacity:.5;">VS PB</div><div style="font-size:14px;font-weight:800;color:var(--green);">−42s</div></div>
+        </div>
+      </div>
+      <div class="w-label"><strong>Lock screen Live Activity</strong>full glance · update every sec</div>
+    </div>
+
+    <!-- LIVE ACTIVITY MINIMAL (LEADING / TRAILING) -->
+    <div class="w-stage">
+      <div style="background:#0a0a0a;border-radius:18px;padding:24px;width:340px;color:#fff;font-family:-apple-system,'SF Pro Rounded';display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;opacity:.6;">9:41</span>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <span style="width:14px;height:14px;background:var(--coral);border-radius:4px;display:inline-block;"></span>
+          <span style="background:#1a1a1a;color:var(--coral);font-size:11px;font-weight:800;padding:3px 8px;border-radius:8px;">38:14</span>
+        </div>
+      </div>
+      <div class="w-label"><strong>Dynamic Island · minimal</strong>app icon + time</div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Watch app states · non-race</span><span class="num">08.5</span></h2>
+  <div class="w-grid">
+
+    <!-- WATCH HOME -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>9:41</span><span>🔋87%</span></div>
+        <div style="margin-top:auto;margin-bottom:auto;text-align:center;">
+          <div style="width:60px;height:60px;background:var(--coral);border-radius:14px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:24px;color:#fff;">HX</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:14px;margin-top:10px;">Sunday sim</div>
+          <div style="font-size:10px;opacity:.6;margin-top:2px;">target 1:18:00</div>
+        </div>
+        <div style="background:var(--coral);color:#fff;border-radius:14px;padding:10px;text-align:center;font-family:-apple-system;font-weight:800;font-size:12px;">START RACE</div>
+      </div></div>
+      <div class="w-label"><strong>Home</strong>one-tap start</div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:#1a0500;justify-content:center;align-items:center;">
+        <div class="w-num" style="font-size:120px;color:var(--coral);line-height:1;">3</div>
+      </div></div>
+      <div class="w-label"><strong>Countdown</strong>3 · 2 · 1 · GO · haptic each</div>
+    </div>
+
+    <!-- PAUSED -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:#1a1a1a;">
+        <div style="display:flex;justify-content:space-between;font-size:9px;font-weight:700;"><span>PAUSED</span><span style="opacity:.6;">38:14</span></div>
+        <div style="margin-top:auto;margin-bottom:auto;text-align:center;">
+          <div style="font-size:42px;color:#fff;">⏸</div>
+          <div style="font-size:11px;opacity:.6;margin-top:8px;">tap to resume</div>
+        </div>
+        <div style="display:flex;gap:4px;">
+          <div style="flex:1;background:var(--coral);color:#fff;border-radius:10px;padding:8px;font-size:11px;font-weight:800;text-align:center;">END</div>
+          <div style="flex:2;background:var(--green);color:#fff;border-radius:10px;padding:8px;font-size:11px;font-weight:800;text-align:center;">RESUME</div>
+        </div>
+      </div></div>
+      <div class="w-label"><strong>Paused</strong>side-button hold</div>
+    </div>
+
+    <!-- FINISHED -->
+    <div class="w-stage">
+      <div class="watch"><div class="w-screen" style="background:linear-gradient(180deg, #1a0500, #000);justify-content:center;align-items:center;">
+        <div style="font-size:32px;">🏁</div>
+        <div class="w-caps" style="opacity:1;color:var(--coral);margin-top:6px;">FINISHED</div>
+        <div class="w-num" style="font-size:42px;color:#fff;margin-top:4px;">1:18:42</div>
+        <div style="font-size:11px;color:var(--green);margin-top:4px;font-weight:700;">−42s · NEW PB</div>
+        <div style="font-size:10px;opacity:.5;margin-top:6px;">open on phone →</div>
+      </div></div>
+      <div class="w-label"><strong>Finished</strong>handoff to phone</div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    @keyframes redpulse { 0%,100%{box-shadow:inset 0 0 0 0 var(--coral)} 50%{box-shadow:inset 0 0 0 4px var(--coral)} }
+  </style>
+</div>
+</body>
+</html>

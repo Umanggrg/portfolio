@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>07 — Settings</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .caps-w { font-family: var(--ui); font-weight: 700; font-size: 9px; letter-spacing: .14em; color: var(--text-night-3); text-transform: uppercase; }
+  .row { background: var(--night-2); padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; font-family: var(--ui); font-size: 12px; color: #fff; }
+  .group { border-radius: 10px; overflow: hidden; }
+  .group .row + .row { border-top: 1px solid var(--night-rule); }
+  .toggle { width: 34px; height: 20px; background: var(--night-rule); border-radius: 10px; position: relative; }
+  .toggle.on { background: var(--coral); } .toggle::after { content:""; position:absolute; top:2px; left:2px; width:16px; height:16px; background:#fff; border-radius:50%; transition:.2s; } .toggle.on::after { left: 16px; }
+  .sub { font-size: 9px; color: var(--text-night-3); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">07 · Flow</div>
+    <h1>Settings</h1>
+    <p>Quiet, exhaustive, single-column. iOS conventions all the way down — no surprises here is the right kind of design.</p>
+  </header>
+
+  <h2 class="section"><span>Settings · main + modals</span><span class="num">07.1</span></h2>
+  <div class="row-grid">
+    <!-- MAIN -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:12px;color:#fff;">Settings</div><div></div></div>
+
+        <div class="caps-w" style="margin-top:14px;">ACCOUNT</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Edit profile</span><span style="color:var(--text-night-3);">›</span></div>
+          <div class="row"><span>Account & email</span><span style="color:var(--text-night-3);">›</span></div>
+          <div class="row"><span>Privacy</span><span class="sub">Public</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">DEVICES</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Apple Watch</span><span style="color:var(--green);font-size:11px;">Connected</span></div>
+          <div class="row"><span>Heart-rate strap</span><span class="sub">Polar H10</span></div>
+          <div class="row"><span>Apple Health</span><span><div class="toggle on"></div></span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">RACE</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>HR zones</span><span class="sub">Manual · max 196</span></div>
+          <div class="row"><span>Pace ghost</span><span><div class="toggle on"></div></span></div>
+          <div class="row"><span>Coaching cues</span><span class="sub">All 5</span></div>
+          <div class="row"><span>Auto-pause</span><span><div class="toggle"></div></span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">NOTIFICATIONS</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Reactions on my races</span><span><div class="toggle on"></div></span></div>
+          <div class="row"><span>Comments</span><span><div class="toggle on"></div></span></div>
+          <div class="row"><span>New followers</span><span><div class="toggle on"></div></span></div>
+          <div class="row"><span>Weekly summary</span><span><div class="toggle on"></div></span></div>
+        </div>
+      </div>
+      <div class="label"><strong>Settings · main</strong>iOS-grouped lists</div>
+    </div>
+
+    <!-- HR ZONES -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:12px;color:#fff;">HR zones</div><div style="color:var(--coral);font-size:11px;font-weight:700;">Save</div></div>
+
+        <div class="caps-w" style="margin-top:14px;">MAX HR</div>
+        <div class="row" style="margin-top:4px;border-radius:10px;"><span>Max heart rate</span><span style="font-family:var(--ui);font-weight:800;color:#fff;font-size:14px;">196 bpm</span></div>
+
+        <div class="caps-w" style="margin-top:14px;">ZONES</div>
+        <div class="stack g4" style="margin-top:4px;">
+          <div class="row" style="border-radius:8px;"><span style="display:flex;gap:8px;align-items:center;"><span style="width:14px;height:14px;background:#3a82f7;border-radius:3px;"></span>Z1 · Recovery</span><span class="sub">50–60% · 98–117</span></div>
+          <div class="row" style="border-radius:8px;"><span style="display:flex;gap:8px;align-items:center;"><span style="width:14px;height:14px;background:var(--green);border-radius:3px;"></span>Z2 · Endurance</span><span class="sub">60–70% · 117–137</span></div>
+          <div class="row" style="border-radius:8px;"><span style="display:flex;gap:8px;align-items:center;"><span style="width:14px;height:14px;background:#FFD60A;border-radius:3px;"></span>Z3 · Tempo</span><span class="sub">70–80% · 137–157</span></div>
+          <div class="row" style="border-radius:8px;"><span style="display:flex;gap:8px;align-items:center;"><span style="width:14px;height:14px;background:var(--amber);border-radius:3px;"></span>Z4 · Threshold</span><span class="sub">80–90% · 157–176</span></div>
+          <div class="row" style="border-radius:8px;"><span style="display:flex;gap:8px;align-items:center;"><span style="width:14px;height:14px;background:var(--coral);border-radius:3px;"></span>Z5 · Max</span><span class="sub">90–100% · 176–196</span></div>
+        </div>
+
+        <div style="margin-top:14px;background:var(--night-2);border-radius:10px;padding:10px;font-size:11px;color:var(--text-night-2);line-height:1.4;">REDLINE alert fires at <b style="color:var(--coral);">Max − 2</b> (194 bpm). Adjustable per athlete.</div>
+      </div>
+      <div class="label"><strong>HR zones</strong>per-athlete tuning</div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:12px;color:#fff;">Privacy</div><div></div></div>
+        <div class="caps-w" style="margin-top:14px;">PROFILE</div>
+        <div class="stack g4" style="margin-top:4px;">
+          <div class="row" style="border-radius:8px;border:1.5px solid var(--coral);background:rgba(255,69,48,.06);"><span><b style="color:#fff;">Public</b><br><span class="sub">anyone can see your races</span></span><span style="color:var(--coral);">✓</span></div>
+          <div class="row" style="border-radius:8px;"><span><b>Followers only</b><br><span class="sub">approved followers see races</span></span><span style="color:var(--text-night-3);">○</span></div>
+          <div class="row" style="border-radius:8px;"><span><b>Private</b><br><span class="sub">only you, even with link</span></span><span style="color:var(--text-night-3);">○</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">DEFAULTS</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>New races default to</span><span class="sub">Followers ›</span></div>
+          <div class="row"><span>Show HR data publicly</span><span><div class="toggle on"></div></span></div>
+          <div class="row"><span>Show gym name</span><span><div class="toggle"></div></span></div>
+          <div class="row"><span>Show in division leaderboards</span><span><div class="toggle on"></div></span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">BLOCKED</div>
+        <div class="row" style="border-radius:8px;margin-top:4px;"><span>3 blocked accounts</span><span style="color:var(--text-night-3);">›</span></div>
+      </div>
+      <div class="label"><strong>Privacy</strong>3 visibilities · defaults</div>
+    </div>
+
+    <!-- ABOUT / DANGER ZONE -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:12px;color:#fff;">Account</div><div></div></div>
+
+        <div class="caps-w" style="margin-top:14px;">SIGN IN</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Email</span><span class="sub">umang@…com</span></div>
+          <div class="row"><span>Password</span><span class="sub">Change ›</span></div>
+          <div class="row"><span>Apple ID</span><span class="sub">Linked ✓</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">DATA</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Export your races</span><span style="color:var(--text-night-3);">›</span></div>
+          <div class="row"><span>Sync with Strava</span><span class="sub">Connect ›</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">ABOUT</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row"><span>Help & support</span><span style="color:var(--text-night-3);">›</span></div>
+          <div class="row"><span>Terms · Privacy</span><span style="color:var(--text-night-3);">›</span></div>
+          <div class="row"><span>Version</span><span class="sub">1.0.0 (build 142)</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;color:var(--coral);">DANGER ZONE</div>
+        <div class="group" style="margin-top:4px;">
+          <div class="row" style="color:var(--coral);font-weight:700;"><span>Sign out</span></div>
+          <div class="row" style="color:var(--coral);font-weight:700;"><span>Delete account</span></div>
+        </div>
+      </div>
+      <div class="label"><strong>Account</strong>data · about · danger</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

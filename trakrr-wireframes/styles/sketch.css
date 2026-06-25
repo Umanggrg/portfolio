@@ -1,0 +1,263 @@
+/* Trakrr — sketchy wireframe system */
+:root {
+  --paper: #fbfaf6;
+  --paper-2: #f3f0e8;
+  --ink: #1a1a1a;
+  --ink-2: #4a4a4a;
+  --ink-3: #8a8a8a;
+  --rule: #2a2a2a;
+  --rule-soft: #b8b3a6;
+  --coral: #FF3B30;
+  --coral-soft: #ffe2df;
+  --green: #32D74B;
+  --amber: #FF9F0A;
+  --blue: #0A84FF;
+  --lime: #BFFF3E;
+  --night: #0A0A0B;
+  --night-2: #141416;
+  --night-3: #1C1C1F;
+  --night-rule: #2C2C2E;
+  --text-night: #F5F5F7;
+  --text-night-2: #8E8E93;
+  --text-night-3: #636366;
+
+  /* Apple-style type — Inter Tight for display (tight tracking like SF Pro Display),
+     Inter / SF Pro Text for body. --hand and --pen kept as aliases so existing
+     markup keeps working, but they no longer reference cursive fonts. */
+  --display: "Inter Tight", -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  --ui: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  --hand: var(--display); /* legacy alias — now clean display sans */
+  --pen: var(--ui);       /* legacy alias — now clean ui sans */
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--ui); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* ============ PAGE / SECTION SCAFFOLD ============ */
+.page { padding: 56px 48px 120px; max-width: 1680px; margin: 0 auto; }
+.page > header { margin-bottom: 32px; border-bottom: 2px solid var(--ink); padding-bottom: 18px; }
+.page > header h1 { font-family: var(--display); font-weight: 600; font-size: 44px; margin: 0 0 10px; line-height: 1.02; letter-spacing: -0.032em; }
+.page > header p { margin: 0; font-family: var(--ui); font-weight: 400; font-size: 16px; color: var(--ink-2); max-width: 740px; line-height: 1.5; letter-spacing: -0.005em; }
+.page > header .crumb { font-family: var(--ui); font-weight: 600; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--coral); margin-bottom: 10px; }
+
+h2.section { font-family: var(--display); font-weight: 600; font-size: 28px; margin: 56px 0 6px; line-height: 1.1; letter-spacing: -0.024em; display: flex; align-items: center; gap: 12px; }
+h2.section::before { content: ""; display: inline-block; width: 10px; height: 10px; background: var(--coral); border-radius: 2px; }
+h2.section .num { font-family: var(--mono); font-weight: 500; font-size: 13px; color: var(--ink-3); letter-spacing: .04em; }
+h2.section + .lede { font-family: var(--ui); font-weight: 400; font-size: 15px; color: var(--ink-2); margin: 0 0 24px; max-width: 720px; line-height: 1.5; }
+
+h3.row { font-family: var(--display); font-weight: 600; font-size: 19px; margin: 36px 0 4px; letter-spacing: -0.02em; }
+h3.row .tag { font-family: var(--ui); font-weight: 500; font-size: 11px; color: var(--ink-3); letter-spacing: .12em; text-transform: uppercase; margin-left: 10px; }
+h3.row + .desc { font-family: var(--ui); font-weight: 400; font-size: 14px; color: var(--ink-2); margin: 0 0 16px; max-width: 640px; line-height: 1.5; }
+
+.row-grid { display: flex; flex-wrap: wrap; gap: 28px 28px; align-items: flex-start; }
+.row-grid.tight { gap: 18px 18px; }
+
+/* ============ iOS PHONE FRAME (sketchy, no chrome shadow) ============ */
+.phone {
+  width: 280px;
+  height: 606px; /* ~ iPhone aspect at this width */
+  border: 2px solid var(--ink);
+  border-radius: 38px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 3px 4px 0 var(--ink);
+}
+.phone.dark { background: var(--night); color: var(--text-night); border-color: #000; box-shadow: 3px 4px 0 #2a2a2a; }
+.phone .notch { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 88px; height: 22px; background: var(--ink); border-radius: 14px; z-index: 5; }
+.phone.dark .notch { background: #000; }
+.phone .status { position: absolute; top: 14px; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 22px; font-family: var(--ui); font-size: 11px; font-weight: 700; z-index: 4; color: inherit; }
+.phone .status .l { font-feature-settings: "tnum"; }
+.phone .status .r { display: flex; gap: 3px; align-items: center; }
+.phone .status .r .bar { width: 14px; height: 8px; border: 1px solid currentColor; border-radius: 2px; position: relative; }
+.phone .status .r .bar::after { content:""; position:absolute; inset: 1px 4px 1px 1px; background: currentColor; border-radius: 1px; }
+
+.phone .screen {
+  position: absolute;
+  inset: 44px 0 0;
+  bottom: 0;
+  padding: 0 14px 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone .label {
+  position: absolute;
+  bottom: -34px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--ui);
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+}
+.phone .label strong { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -0.015em; color: var(--ink); display: block; line-height: 1.1; margin-bottom: 3px; }
+
+/* tab bar inside phones */
+.tabbar { position: absolute; bottom: 14px; left: 14px; right: 14px; height: 52px; border: 1.5px solid var(--rule-soft); border-radius: 26px; display: flex; align-items: center; justify-content: space-around; background: rgba(255,255,255,.5); }
+.phone.dark .tabbar { border-color: var(--night-rule); background: rgba(28,28,31,.6); }
+.tabbar .item { font-family: var(--ui); font-weight: 500; font-size: 10px; color: var(--ink-3); display:flex; flex-direction:column; align-items:center; gap:2px; letter-spacing: -0.005em; }
+.tabbar .item .ic { width: 18px; height: 18px; border: 1.2px solid currentColor; border-radius: 4px; }
+.tabbar .item.active { color: var(--coral); }
+.phone.dark .tabbar .item { color: var(--text-night-3); }
+.phone.dark .tabbar .item.active { color: var(--coral); }
+
+/* ============ WATCH FRAME ============ */
+.watch {
+  width: 168px;
+  height: 200px;
+  border: 2px solid var(--ink);
+  border-radius: 36px;
+  background: var(--night);
+  color: var(--text-night);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 3px 4px 0 var(--ink);
+  flex-shrink: 0;
+}
+.watch.light { background: var(--paper); color: var(--ink); }
+.watch .screen { position:absolute; inset: 10px 8px; overflow:hidden; }
+.watch .crown { position: absolute; right: -4px; top: 60px; width: 6px; height: 22px; background: var(--ink); border-radius: 3px; }
+.watch .label { position: absolute; bottom: -32px; left:0; right:0; text-align:center; font-family: var(--ui); font-weight: 400; font-size: 11px; color: var(--ink-2); letter-spacing: -0.005em; }
+.watch .label strong { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -0.015em; color: var(--ink); display:block; line-height: 1.1; margin-bottom: 2px; }
+
+/* ============ SKETCHY PRIMITIVES ============ */
+.box { border: 1.5px solid var(--rule); border-radius: 10px; padding: 10px 12px; background: transparent; }
+.phone.dark .box { border-color: var(--night-rule); }
+.box.dashed { border-style: dashed; }
+.box.coral { border-color: var(--coral); color: var(--coral); }
+.box.soft { background: rgba(0,0,0,.04); }
+.phone.dark .box.soft { background: rgba(255,255,255,.04); }
+
+.btn { display:flex; align-items:center; justify-content:center; gap:6px; border: 1.5px solid var(--ink); border-radius: 14px; padding: 10px 14px; font-family: var(--ui); font-weight: 600; font-size: 13px; letter-spacing: -0.01em; background: transparent; }
+.btn.primary { background: var(--coral); color: white; border-color: var(--coral); }
+.btn.huge { padding: 18px; font-size: 16px; border-radius: 18px; }
+.phone.dark .btn { border-color: var(--text-night-2); color: var(--text-night); }
+.phone.dark .btn.primary { background: var(--coral); border-color: var(--coral); color: white; }
+
+.chip { display:inline-flex; align-items:center; gap:4px; border: 1.2px solid currentColor; border-radius: 999px; padding: 3px 9px; font-family: var(--ui); font-size: 11px; font-weight: 600; letter-spacing: -0.005em; }
+.chip.coral { color: var(--coral); }
+.chip.green { color: var(--green); }
+.chip.amber { color: var(--amber); }
+.chip.blue { color: var(--blue); }
+.chip.fill { background: currentColor; }
+.chip.fill span { color: white; mix-blend-mode: normal; }
+
+.hand { font-family: var(--display); font-weight: 600; letter-spacing: -0.015em; }
+.mono { font-family: var(--mono); font-feature-settings: "tnum"; }
+
+.scribble { position: relative; }
+.scribble::after { content:""; position:absolute; left:-2px; right:-2px; bottom:-4px; height: 6px; border-bottom: 2px solid var(--coral); border-radius: 50%; }
+
+/* ============ ANNOTATIONS ============ */
+.annot { font-family: var(--ui); font-weight: 500; font-size: 13.5px; letter-spacing: -0.01em; color: var(--ink); line-height: 1.35; max-width: 220px; }
+.annot.tiny { font-size: 12px; }
+.annot .arrow { display:inline-block; margin-right: 6px; }
+.annot.bullet { padding-left: 14px; position: relative; }
+.annot.bullet::before { content: "→"; position:absolute; left: 0; color: var(--coral); }
+
+.callout-stack { display:flex; flex-direction: column; gap: 10px; max-width: 260px; margin-top: 8px; }
+.callout-stack .annot { font-family: var(--ui); font-weight: 400; font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+.callout-stack .annot strong { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -0.015em; color: var(--ink); display:block; line-height: 1.2; margin-bottom: 4px; }
+
+/* ============ SWATCHES / TYPE / SPEC blocks for system page ============ */
+.swatch { width: 96px; }
+.swatch .chip-color { height: 64px; border-radius: 10px; border: 1.5px solid var(--ink); }
+.swatch .name { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -0.015em; margin-top: 8px; line-height: 1.1; }
+.swatch .hex { font-family: var(--mono); font-size: 11px; color: var(--ink-2); }
+
+.type-row { display: flex; align-items: baseline; gap: 18px; padding: 10px 0; border-bottom: 1px dashed var(--rule-soft); }
+.type-row .meta { font-family: var(--ui); font-weight: 400; font-size: 12px; color: var(--ink-3); width: 140px; flex-shrink: 0; }
+.type-row .meta strong { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -0.015em; color: var(--ink); display:block; line-height: 1.1; margin-bottom: 2px; }
+.type-row .sample { font-family: -apple-system, "SF Pro Rounded", system-ui, sans-serif; color: var(--ink); }
+
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.spec { border: 1.5px solid var(--ink); border-radius: 12px; padding: 14px; }
+.spec h4 { font-family: var(--display); font-weight: 600; font-size: 16px; letter-spacing: -0.018em; margin: 0 0 6px; line-height: 1.15; }
+.spec p { font-family: var(--ui); font-weight: 400; font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.5; }
+
+/* arrows for flow */
+.flow-arrow { font-family: var(--ui); font-weight: 300; font-size: 24px; color: var(--coral); align-self: center; margin: 0 -4px; }
+
+/* tiny dividers / status pills inside phone */
+.divider { height: 1px; background: var(--rule-soft); margin: 8px 0; }
+.phone.dark .divider { background: var(--night-rule); }
+
+.caps { font-family: var(--ui); font-weight: 600; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
+.phone.dark .caps { color: var(--text-night-3); }
+
+/* simulate hand-drawn rough corners on key elements with a subtle filter */
+.rough { filter: url(#rough); }
+
+/* generic stack */
+.stack { display:flex; flex-direction: column; }
+.stack.g4 { gap: 4px; } .stack.g6 { gap: 6px; } .stack.g8 { gap: 8px; } .stack.g10 { gap: 10px; } .stack.g12 { gap: 12px; }
+.row-f { display: flex; gap: 8px; align-items: center; }
+.row-f.between { justify-content: space-between; }
+.row-f.center { justify-content: center; }
+.grow { flex: 1; }
+
+/* placeholder bars */
+.bar { height: 6px; border-radius: 3px; background: var(--rule-soft); }
+.phone.dark .bar { background: var(--night-rule); }
+.bar.short { width: 36%; } .bar.mid { width: 60%; } .bar.long { width: 86%; }
+.bar.coral { background: var(--coral); }
+
+/* big number */
+.bignum { font-family: -apple-system, "SF Pro Rounded", system-ui, sans-serif; font-weight: 800; font-feature-settings: "tnum"; letter-spacing: -0.02em; }
+.bignum.race { font-size: 64px; line-height: 0.9; }
+.bignum.hero { font-size: 36px; line-height: 1; }
+.bignum.mid { font-size: 24px; line-height: 1; }
+
+/* alert overlay full-bleed for watch */
+.alert-full { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 4px; color: white; text-align: center; }
+.alert-full .verb { font-family: -apple-system, "SF Pro Rounded", system-ui, sans-serif; font-weight: 900; font-size: 38px; letter-spacing: .04em; line-height: 1; }
+.alert-full .sub { font-family: var(--ui); font-weight: 400; font-size: 11px; opacity: .8; max-width: 130px; letter-spacing: -0.005em; }
+
+/* photo placeholder */
+.photo { aspect-ratio: 16/10; border: 1.5px dashed var(--rule); border-radius: 10px; display:flex; align-items:center; justify-content:center; font-family: var(--ui); font-weight: 500; color: var(--ink-3); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; position: relative; background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(0,0,0,.03) 8px, rgba(0,0,0,.03) 9px); }
+.phone.dark .photo { border-color: var(--night-rule); color: var(--text-night-3); background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(255,255,255,.03) 8px, rgba(255,255,255,.03) 9px); }
+.photo::before { content:""; position:absolute; inset:0; background: linear-gradient(135deg, transparent 49%, rgba(0,0,0,.15) 49%, rgba(0,0,0,.15) 51%, transparent 51%); }
+.phone.dark .photo::before { background: linear-gradient(135deg, transparent 49%, rgba(255,255,255,.08) 49%, rgba(255,255,255,.08) 51%, transparent 51%); }
+
+/* avatar */
+.av { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--rule); display:inline-flex; align-items:center; justify-content:center; font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -0.01em; color: var(--ink-2); background: var(--paper-2); flex-shrink: 0; }
+.phone.dark .av { border-color: var(--night-rule); background: var(--night-3); color: var(--text-night-2); }
+.av.lg { width: 64px; height: 64px; font-size: 22px; }
+.av.xl { width: 96px; height: 96px; font-size: 28px; border: 2px solid var(--coral); box-shadow: 0 0 0 4px rgba(255,59,48,.15); }
+
+/* HR zone bar */
+.hr-zones { display: flex; gap: 2px; height: 10px; border-radius: 4px; overflow: hidden; }
+.hr-zones .z { flex: 1; opacity: .25; }
+.hr-zones .z.on { opacity: 1; }
+.hr-zones .z1 { background: #3a82f7; } .hr-zones .z2 { background: #32D74B; } .hr-zones .z3 { background: #FFD60A; } .hr-zones .z4 { background: #FF9F0A; } .hr-zones .z5 { background: #FF3B30; }
+
+/* numbered marker (for callouts on screens) */
+.num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--coral); color: white;
+  font-family: var(--ui); font-weight: 700; font-size: 11px;
+  display: inline-flex; align-items:center; justify-content:center;
+  box-shadow: 0 0 0 2px var(--paper);
+  flex-shrink: 0;
+}
+
+/* note card alongside phones */
+.notes { max-width: 280px; }
+.notes h4 { font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.15; }
+.notes ol, .notes ul { margin: 0; padding-left: 0; list-style: none; }
+.notes li { font-family: var(--ui); font-weight: 400; font-size: 13px; line-height: 1.5; color: var(--ink-2); padding: 8px 0 8px 30px; position: relative; border-bottom: 1px dashed var(--rule-soft); }
+.notes li:last-child { border-bottom: none; }
+.notes li .num { position: absolute; left: 0; top: 6px; }
+.notes li b { color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -0.012em; }
+
+/* dark companion of notes */
+.notes.dark h4 { color: var(--text-night); }
+.notes.dark li { color: var(--text-night-2); border-color: var(--night-rule); }
+
+/* helpers */
+.muted { color: var(--ink-3); }
+.coral-text { color: var(--coral); }

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>09 — Component library</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .lift { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; margin-bottom: 28px; }
+  .lift > .from, .lift > .to, .lift > .why { border: 1.5px solid var(--ink); border-radius: 12px; padding: 16px; background: white; }
+  .lift > .from { background: #faf6ed; }
+  .lift > .to { border-color: var(--coral); border-width: 2px; }
+  .lift .hdr { font-family: var(--hand); font-size: 24px; line-height: 1; margin-bottom: 8px; }
+  .lift .src { font-family: var(--mono); font-size: 10px; color: var(--ink-3); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+  .lift .why p { font-family: var(--pen); font-size: 13px; color: var(--ink-2); line-height: 1.45; margin: 0; }
+  .lift .why p + p { margin-top: 6px; }
+  .mini { width: 100%; min-height: 120px; border: 1.2px dashed var(--rule-soft); border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 6px; background: var(--paper); }
+  .mini.dark { background: var(--night); color: var(--text-night); border-color: var(--night-rule); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">09 · Reference</div>
+    <h1>Component library — what to steal, what to invent</h1>
+    <p>The brief calls out Strava, Whoop, Apple Fitness, Linear, Things. You also asked me to look at <b>Airbnb</b> and <b>Uber</b>. Below: each Trakrr component, the best-in-class precedent for it, the lift, and what we change to make it ours. The right answer is rarely "invent" — most of these patterns are solved problems. Our job is to assemble them with taste.</p>
+  </header>
+
+  <h2 class="section"><span>The 10 core components</span><span class="num">09.1</span></h2>
+  <p class="lede">Each block: <b style="color: var(--ink-2);">what others do</b> → <b style="color: var(--coral);">what Trakrr does</b> → why. Stealing the right idea is a feature, not a bug.</p>
+
+  <!-- 1. FEED CARD -->
+  <h3 class="row">1 · Feed card <span class="tag">the front door</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Strava</div>
+      <div class="hdr">Activity card anatomy</div>
+      <div class="mini">
+        <div style="display:flex;gap:8px;align-items:center;"><div class="av" style="width:24px;height:24px;font-size:11px;">SC</div><div style="flex:1;"><div style="font-size:11px;font-weight:700;line-height:1;">Sarah Chen</div><div style="font-size:9px;color:var(--ink-3);">2h · Brooklyn, NY</div></div></div>
+        <div style="font-size:13px;font-weight:700;line-height:1;">Sunday HYROX sim</div>
+        <div class="photo" style="aspect-ratio: 16/8;">photo</div>
+        <div style="display:flex;justify-content:space-around;font-size:9px;border-top:1px solid var(--rule-soft);padding-top:6px;"><span><b>1:18:42</b><br>time</span><span><b>5.2 km</b><br>run</span><span><b>167</b><br>HR</span></div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Race feed card</div>
+      <div class="mini dark">
+        <div style="display:flex;gap:8px;align-items:center;"><div class="av" style="width:24px;height:24px;font-size:11px;background:var(--night-3);color:#fff;border-color:var(--night-rule);">SC</div><div style="flex:1;"><div style="font-size:11px;font-weight:700;line-height:1;color:#fff;">Sarah Chen <span style="color:var(--text-night-3);font-weight:400;">@sarahc</span></div><div style="font-size:9px;color:var(--text-night-3);">2h · Brooklyn · Women's Open</div></div></div>
+        <div style="font-size:13px;font-weight:700;line-height:1;color:#fff;">Sunday HYROX sim</div>
+        <div class="bignum hero" style="color:#fff;font-size:30px;">1:18:42 <span style="font-size:11px;color:var(--green);">−42s PB</span></div>
+        <div class="photo" style="aspect-ratio: 16/8;">photo</div>
+        <div style="display:flex;gap:8px;align-items:center;font-size:10px;color:var(--text-night-2);"><span>🔥 12</span><span>💪 8</span><span>⚡ 5</span><span>🫡 3</span><span style="margin-left:auto;">💬 4</span></div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Strava's three-band rhythm — athlete header → photo hero → stat band — is a solved pattern. Don't reinvent it.</p>
+      <p><b>Changed:</b> Finish time becomes <i>the</i> hero stat, not a buried number. PB delta sits inline (Strava buries this). Reaction row uses 4 HYROX-themed emoji with counts, not a single kudos count. Division pill in the meta line.</p>
+      <p><b>Killed:</b> Strava's "give kudos" button. Tap an emoji to react, long-press for the picker — same gesture as iMessage. One less button.</p>
+    </div>
+  </div>
+
+  <!-- 2. PROFILE HERO -->
+  <h3 class="row">2 · Profile hero <span class="tag">identity</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Airbnb (host profile)</div>
+      <div class="hdr">Centered hero w/ ring</div>
+      <div class="mini" style="align-items:center;text-align:center;padding:14px 10px;">
+        <div class="av lg" style="margin: 0 auto; border: 3px solid #FF385C;"></div>
+        <div style="font-weight:800;font-size:14px;line-height:1;">Maria · Superhost</div>
+        <div style="font-size:9px;color:var(--ink-3);">4.96 · 312 reviews · 6 years</div>
+        <div style="display:flex;gap:6px;justify-content:center;"><span class="chip">★ Top rated</span><span class="chip">Quick reply</span></div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">HYROX hero</div>
+      <div class="mini dark" style="align-items:center;text-align:center;padding:14px 10px;">
+        <div class="av lg" style="margin: 0 auto; border: 3px solid var(--coral); box-shadow: 0 0 0 4px rgba(255,69,48,.18);">U</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:18px;line-height:1;color:#fff;">Umang</div>
+        <div style="font-size:10px;color:var(--text-night-3);">@umanggrg</div>
+        <div style="display:flex;gap:6px;justify-content:center;"><span class="chip coral fill"><span style="color:#fff;">MEN'S OPEN</span></span></div>
+        <div style="font-size:9px;color:var(--text-night-2);"><b style="color:#fff;font-size:11px;">0</b> followers · <b style="color:#fff;font-size:11px;">0</b> following</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Airbnb's hero pattern — large centered avatar with a colored ring + condensed identity meta. The ring is a brand moment that doesn't shout.</p>
+      <p><b>Changed:</b> One pill (division), not five badges. Follower counts inline as a sentence, not stat tiles — that's what social apps do; stats are for performance numbers below.</p>
+      <p><b>Killed:</b> The bar-chart-as-avatar idea you have today. It's clever but unreadable at 32×32 — and AI-slop adjacent. Photo or monogram.</p>
+    </div>
+  </div>
+
+  <!-- 3. STAT TILE -->
+  <h3 class="row">3 · Stat tile row <span class="tag">Races · PB · Avg · Streak</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Apple Fitness</div>
+      <div class="hdr">Quad-tile rhythm</div>
+      <div class="mini" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div style="border:1px solid var(--rule-soft);border-radius:6px;padding:6px;"><div style="font-weight:800;font-size:14px;color:#FF2D55;line-height:1;">412</div><div style="font-size:8px;color:var(--ink-3);">MOVE · kcal</div></div>
+        <div style="border:1px solid var(--rule-soft);border-radius:6px;padding:6px;"><div style="font-weight:800;font-size:14px;color:#1FE074;line-height:1;">36</div><div style="font-size:8px;color:var(--ink-3);">EXERCISE · min</div></div>
+        <div style="border:1px solid var(--rule-soft);border-radius:6px;padding:6px;"><div style="font-weight:800;font-size:14px;color:#00D4D4;line-height:1;">8/12</div><div style="font-size:8px;color:var(--ink-3);">STAND · hr</div></div>
+        <div style="border:1px solid var(--rule-soft);border-radius:6px;padding:6px;"><div style="font-weight:800;font-size:14px;line-height:1;">5.2k</div><div style="font-size:8px;color:var(--ink-3);">STEPS</div></div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Hero-tile-plus-three</div>
+      <div class="mini dark" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;align-items:end;">
+        <div style="border:1.5px solid var(--coral);border-radius:6px;padding:6px;background:rgba(255,69,48,.08);"><div class="bignum mid" style="color:var(--coral);font-size:18px;">00:14</div><div style="font-size:7px;color:var(--text-night-3);letter-spacing:.1em;">PB · STATION</div></div>
+        <div style="border:1px solid var(--night-rule);border-radius:6px;padding:6px;"><div class="bignum mid" style="color:#fff;font-size:14px;">5</div><div style="font-size:7px;color:var(--text-night-3);letter-spacing:.1em;">RACES</div></div>
+        <div style="border:1px solid var(--night-rule);border-radius:6px;padding:6px;"><div class="bignum mid" style="color:#fff;font-size:14px;">25:22</div><div style="font-size:7px;color:var(--text-night-3);letter-spacing:.1em;">AVG</div></div>
+        <div style="border:1px solid var(--night-rule);border-radius:6px;padding:6px;"><div class="bignum mid" style="color:#fff;font-size:14px;">0 🔥</div><div style="font-size:7px;color:var(--text-night-3);letter-spacing:.1em;">STREAK</div></div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Apple's discipline of one number + one caps label per tile. No icons, no chart, no chrome.</p>
+      <p><b>Changed:</b> Asymmetric — PB tile is 1.4× wider, bordered coral, light-glow background. Other three are equal-weight. Visual hierarchy says "this is the one you wake up to."</p>
+      <p><b>Killed:</b> Equal-weight stat row from today's profile. Equal weight = no hierarchy = you read nothing.</p>
+    </div>
+  </div>
+
+  <!-- 4. PRIMARY CTA -->
+  <h3 class="row">4 · Primary CTA <span class="tag">Start Race · Next Station · End</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Uber (request ride)</div>
+      <div class="hdr">Full-width slab</div>
+      <div class="mini" style="justify-content:flex-end;">
+        <div style="background:#000;color:#fff;border-radius:12px;padding:14px;text-align:center;font-weight:700;font-size:14px;">UberX · 4 min</div>
+        <div style="background:#fff;color:#000;border:1px solid #000;border-radius:12px;padding:14px;text-align:center;font-weight:800;font-size:15px;">Confirm UberX</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Race-grade CTA</div>
+      <div class="mini dark" style="justify-content:flex-end;">
+        <div style="background:transparent;color:var(--text-night-2);border:1.5px solid var(--night-rule);border-radius:18px;padding:14px;text-align:center;font-weight:700;font-size:12px;">Pause</div>
+        <div style="background:var(--coral);color:#fff;border-radius:18px;padding:20px;text-align:center;font-weight:800;font-size:17px;box-shadow:0 0 24px rgba(255,69,48,.4);">⚑ Next Station</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Uber's "one button rules the screen" discipline. They never split decisions into 50/50 buttons — there's always a clear primary and a quieter secondary above or beside.</p>
+      <p><b>Changed:</b> 64pt tall (was 60) for sweaty hands. 22pt radius. Coral glow shadow — a brand moment, used only on the primary in-race button. Secondary is a quiet ghost button beside it.</p>
+      <p><b>Killed:</b> Equal-weight Solo/Duo buttons on the Ready screen. Solo gets the coral border (primary intent), Duo is the quiet alt.</p>
+    </div>
+  </div>
+
+  <!-- 5. COACHING CUE OVERLAY -->
+  <h3 class="row">5 · Coaching cue overlay <span class="tag">5 states · the differentiator</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Waze (turn-by-turn)</div>
+      <div class="hdr">Verb-first full-screen takeover</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;text-align:center;background:#2BB573;color:#fff;border:none;">
+        <div style="font-weight:900;font-size:28px;letter-spacing:.05em;">TURN RIGHT</div>
+        <div style="font-size:9px;opacity:.8;">in 200 ft · Atlantic Ave</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">In-race cue · 2.5s takeover</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;text-align:center;background:#FF3B30;color:#fff;border:none;">
+        <div style="font-weight:900;font-size:30px;letter-spacing:.05em;">REDLINE</div>
+        <div style="font-size:10px;opacity:.85;margin-top:2px;">192 bpm · ease off</div>
+        <div style="margin-top:8px;display:flex;gap:3px;justify-content:center;"><span style="width:6px;height:6px;border-radius:50%;background:#fff;"></span><span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);"></span><span style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4);"></span></div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Waze's verb-first formula. One word that tells you what to <i>do</i>, not what's <i>happening</i>. "TURN RIGHT" not "intersection ahead." We do the same: HOLD, SLOW, REDLINE, RECOVER, PUSH.</p>
+      <p><b>Changed:</b> Five color-states. Each gets a distinct haptic pattern. The takeover is full-screen on Watch (1.5-sec glance distance), a top-banner card on phone (arm's length, less invasive).</p>
+      <p><b>Killed:</b> The instinct to add HR graphs to the overlay. You're 4 stations deep, you don't need a graph — you need a verb.</p>
+    </div>
+  </div>
+
+  <!-- 6. REACTION BUTTON -->
+  <h3 class="row">6 · Reaction button <span class="tag">tap = react · long-press = picker</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · iMessage (Tapback)</div>
+      <div class="hdr">Tap = default · long = picker</div>
+      <div class="mini" style="align-items:center;justify-content:center;">
+        <div style="background:#34C759;border-radius:18px;padding:10px 16px;color:#fff;font-size:20px;">❤️</div>
+        <div style="font-size:9px;color:var(--ink-3);">tap to send · long-press for picker</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">HYROX-themed quartet</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;">
+        <div style="display:flex;gap:6px;align-items:center;">
+          <div style="background:var(--night-3);border-radius:14px;padding:6px 10px;color:#fff;font-size:14px;display:flex;gap:4px;align-items:center;">🔥<span style="font-size:10px;font-weight:700;">12</span></div>
+          <div style="background:var(--night-3);border-radius:14px;padding:6px 10px;color:#fff;font-size:14px;display:flex;gap:4px;align-items:center;">💪<span style="font-size:10px;font-weight:700;">8</span></div>
+          <div style="background:rgba(255,69,48,.15);border:1.2px solid var(--coral);border-radius:14px;padding:6px 10px;color:#fff;font-size:14px;display:flex;gap:4px;align-items:center;">⚡<span style="font-size:10px;font-weight:700;color:var(--coral);">5</span></div>
+          <div style="background:var(--night-3);border-radius:14px;padding:6px 10px;color:#fff;font-size:14px;display:flex;gap:4px;align-items:center;">🫡<span style="font-size:10px;font-weight:700;">3</span></div>
+        </div>
+        <div style="font-size:9px;color:var(--text-night-3);">long-press any → custom picker</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> iMessage's gesture model is the most learned interaction on iOS. Don't fight it.</p>
+      <p><b>Changed:</b> Four emoji baked in (🔥 grind · 💪 power · ⚡ pace · 🫡 respect). Tap toggles your own reaction (coral border on your active one). Counts inline.</p>
+      <p><b>Killed:</b> A generic "❤️ Like" button. Strava-flavored kudos has no texture. The four reactions encode meaningfully different things you'd want to say to an athlete.</p>
+    </div>
+  </div>
+
+  <!-- 7. SEARCH FIELD -->
+  <h3 class="row">7 · Search field <span class="tag">Profile search · History search</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Airbnb (location search)</div>
+      <div class="hdr">Pill input · live results below</div>
+      <div class="mini">
+        <div style="background:#fff;border:1px solid #DDD;border-radius:999px;padding:10px 14px;display:flex;gap:8px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.06);"><span style="font-size:12px;">🔍</span><span style="font-size:11px;color:var(--ink-3);">Where to?</span></div>
+        <div style="font-size:10px;font-weight:700;margin-top:6px;">Recent searches</div>
+        <div style="font-size:10px;color:var(--ink-2);padding:4px 0;">Lake Tahoe</div>
+        <div style="font-size:10px;color:var(--ink-2);padding:4px 0;">Joshua Tree</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Pill + recent + suggested</div>
+      <div class="mini dark">
+        <div style="background:var(--night-3);border-radius:999px;padding:10px 14px;display:flex;gap:8px;align-items:center;"><span style="font-size:12px;color:var(--coral);">🔍</span><span style="font-size:11px;color:var(--text-night-3);">@handle or name</span></div>
+        <div style="font-size:9px;color:var(--text-night-3);font-weight:700;letter-spacing:.1em;margin-top:6px;">RECENT</div>
+        <div style="display:flex;gap:6px;align-items:center;font-size:10px;color:#fff;padding:3px 0;"><div class="av" style="width:18px;height:18px;font-size:9px;background:var(--night-3);color:#fff;border:none;">SC</div>@sarahc</div>
+        <div style="font-size:9px;color:var(--text-night-3);font-weight:700;letter-spacing:.1em;margin-top:4px;">SUGGESTED · YOUR DIVISION</div>
+        <div style="display:flex;gap:6px;align-items:center;font-size:10px;color:#fff;padding:3px 0;"><div class="av" style="width:18px;height:18px;font-size:9px;background:var(--night-3);color:#fff;border:none;">JK</div>@jkim</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Airbnb's pill-input + recent/suggested layout. Empty search isn't empty — it surfaces relevant choices before you type.</p>
+      <p><b>Changed:</b> "Suggested" filtered by division — Men's Open athletes see Men's Open suggestions. Smaller surface, more relevant.</p>
+      <p><b>Killed:</b> Generic "popular athletes" carousel. Discovery without relevance is just noise.</p>
+    </div>
+  </div>
+
+  <!-- 8. FOLLOW BUTTON -->
+  <h3 class="row">8 · Follow button <span class="tag">3 states · Follow / Following / Requested</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Twitter/X (and everyone else)</div>
+      <div class="hdr">Solid-fill → outlined-quiet</div>
+      <div class="mini" style="align-items:center;justify-content:center;gap:10px;">
+        <div style="background:#fff;color:#000;border:1px solid #000;border-radius:999px;padding:6px 18px;font-weight:800;font-size:12px;">Follow</div>
+        <div style="background:transparent;color:#fff;background:#000;border-radius:999px;padding:6px 18px;font-weight:700;font-size:12px;">Following</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Coral primary → quiet outline on hover-confirm</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;gap:8px;">
+        <div style="background:var(--coral);color:#fff;border-radius:999px;padding:7px 18px;font-weight:800;font-size:12px;">Follow</div>
+        <div style="background:transparent;color:var(--text-night);border:1.5px solid var(--text-night-2);border-radius:999px;padding:7px 18px;font-weight:700;font-size:12px;">Following ✓</div>
+        <div style="background:transparent;color:var(--text-night-3);border:1.5px dashed var(--night-rule);border-radius:999px;padding:7px 18px;font-weight:700;font-size:12px;">Requested</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> The world's most-tested two-state pattern. Coral-solid for the unfilled action, outlined-quiet once filled.</p>
+      <p><b>Changed:</b> Tap "Following" → bottom-sheet to unfollow (Instagram pattern). Don't trigger destructive unfollow on a stray tap. "Requested" is dashed-outline so its in-between state reads at a glance.</p>
+      <p><b>Killed:</b> A confirmation alert on Follow. Just follow. The button changes; the user knows.</p>
+    </div>
+  </div>
+
+  <!-- 9. DUO PAIRING CODE -->
+  <h3 class="row">9 · Duo pairing code <span class="tag">6-char · grouped 3-3</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Apple TV pair-with-phone</div>
+      <div class="hdr">Monospaced code · big · grouped</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;">
+        <div style="font-family:var(--mono);font-weight:700;font-size:28px;color:#fff;letter-spacing:.12em;">4 2 7   9 0 3</div>
+        <div style="font-size:9px;color:var(--text-night-3);">Enter on your phone</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Glowing pill code</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;">
+        <div style="background:var(--night-3);border:1.5px solid var(--coral);border-radius:18px;padding:10px 18px;display:flex;gap:10px;box-shadow:0 0 16px rgba(255,69,48,.25);">
+          <span style="font-family:var(--mono);font-weight:800;font-size:24px;color:#fff;letter-spacing:.08em;">HYR</span>
+          <span style="color:var(--text-night-3);font-size:24px;">·</span>
+          <span style="font-family:var(--mono);font-weight:800;font-size:24px;color:#fff;letter-spacing:.08em;">42K</span>
+        </div>
+        <div style="font-size:9px;color:var(--text-night-3);">share with your duo partner</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Apple TV's six-character code is the cleanest pair-code pattern in the wild. Grouped 3-3 lets you read it once and remember it.</p>
+      <p><b>Changed:</b> Letters allowed (not just digits). "HYR · 42K" is more memorable than "427 903." Coral-bordered pill — small brand moment.</p>
+      <p><b>Killed:</b> QR codes for duo pairing. Phones are often in pockets / sweaty hands — a 6-char code over text or voice is faster.</p>
+    </div>
+  </div>
+
+  <!-- 10. EMPTY STATE -->
+  <h3 class="row">10 · Empty state <span class="tag">"Feed is quiet"</span></h3>
+  <div class="lift">
+    <div class="from">
+      <div class="src">Steal from · Linear (empty inbox)</div>
+      <div class="hdr">Typographic · single glyph · one action</div>
+      <div class="mini" style="align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:42px;opacity:.2;line-height:1;">⌘</div>
+        <div style="font-weight:700;font-size:14px;">Nothing assigned to you.</div>
+        <div style="font-size:10px;color:var(--ink-3);">When teammates assign issues, they show up here.</div>
+        <div style="background:transparent;border:1px solid var(--ink);border-radius:8px;padding:5px 12px;font-size:10px;font-weight:700;display:inline-block;margin-top:4px;">Browse all</div>
+      </div>
+    </div>
+    <div class="to">
+      <div class="src coral-text">Trakrr</div>
+      <div class="hdr">Quiet by design</div>
+      <div class="mini dark" style="align-items:center;justify-content:center;text-align:center;">
+        <div style="font-size:42px;opacity:.18;line-height:1;color:#fff;">⚑</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:16px;color:#fff;">Feed is quiet.</div>
+        <div style="font-size:10px;color:var(--text-night-2);max-width:160px;">Follow a few athletes and their finishes will land here.</div>
+        <div style="background:var(--coral);color:#fff;border-radius:14px;padding:7px 14px;font-size:11px;font-weight:800;display:inline-block;margin-top:4px;">Find athletes →</div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="src">Why this works</div>
+      <p><b>Lifted:</b> Linear's "do nothing fancy, just say what's true" empty state. No cartoon racer. No "Get started!" cheerleader.</p>
+      <p><b>Changed:</b> Coral primary CTA — empty states are conversion moments; this is one of the few places we let coral lead.</p>
+      <p><b>Killed:</b> The instinct to design an illustration. Empty states are where AI-slop creeps in. Stay quiet.</p>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Cross-app pattern brainstorm</span><span class="num">09.2</span></h2>
+  <p class="lede">Things I'd consider stealing into Trakrr — not committed yet, just on the table.</p>
+  <div class="spec-grid">
+    <div class="spec"><h4>Airbnb · "Wishlists" → Race targets</h4><p>Airbnb's "save to a list with a name" pattern → save races as <i>targets</i> ("Sub-90," "Beat my London time"). They show up on profile as collections.</p></div>
+    <div class="spec"><h4>Uber · "Confirm with slide"</h4><p>Slide-to-confirm gesture for the final race-end action so you don't accidentally end at station 14. Friction here is correct, not annoying.</p></div>
+    <div class="spec"><h4>Strava · Segment leaderboards</h4><p>Apply to <b>per-station</b> times — fastest Wall Balls in your division this month. This is half the moat.</p></div>
+    <div class="spec"><h4>Whoop · Recovery ring</h4><p>Don't copy the ring (theirs is iconic). Steal the <i>idea</i>: a single recovery number, 0–100, gating today's training rec. Lives on profile, top-right of Next Up card.</p></div>
+    <div class="spec"><h4>Apple Fitness · Sharing competition</h4><p>"Compete this week with @sarahc" — 7-day duel scored by combined HYROX-relevant minutes. Lightweight, social, recurring.</p></div>
+    <div class="spec"><h4>Linear · ⌘K command bar</h4><p>For power users: pull-down search on Profile = command palette. "Start race · custom workout · find athlete · last race." Optional, but rewards the 5%.</p></div>
+    <div class="spec"><h4>Things · Heading rhythm</h4><p>Things' "Today / Upcoming / Anytime" headers as the rhythm for Profile: "Next Up / Recent / Trends." Reads like a journal, not a dashboard.</p></div>
+    <div class="spec"><h4>Notion · Inline reactions on comments</h4><p>Race comment threads should support tap-to-react inline (not just on the parent race). Strava can't do this. We can.</p></div>
+    <div class="spec"><h4>Headspace · Single-color tinting</h4><p>Each station gets a tint color from the HYROX palette. The tint follows the station through history, summary, station intelligence — gives 16 stations 16 personalities.</p></div>
+    <div class="spec"><h4>Robinhood · Big-number screen</h4><p>The in-race timer screen IS Robinhood's portfolio view. One huge number, sparse context, no buttons fighting for attention. We've already half-built this — commit to it.</p></div>
+  </div>
+
+  <h2 class="section"><span>What NOT to steal</span><span class="num">09.3</span></h2>
+  <div class="spec-grid">
+    <div class="spec" style="border-color: var(--coral);"><h4>Duolingo's everything</h4><p>Streaks with cartoon characters, XP bars, mascot reactions. Antithesis of "earned confidence."</p></div>
+    <div class="spec" style="border-color: var(--coral);"><h4>Instagram's stories tray</h4><p>You're not a content platform. Don't put a horizontal scroll of avatars at the top of feed.</p></div>
+    <div class="spec" style="border-color: var(--coral);"><h4>TikTok's algorithmic feed</h4><p>Trakrr's feed is chronological, from people you follow. Don't optimize for engagement — optimize for trust.</p></div>
+    <div class="spec" style="border-color: var(--coral);"><h4>Spotify's hyper-personalized cards</h4><p>"Your Wrapped" is great once a year. Per-screen personalized greetings ("Crushing it, Umang!") are not.</p></div>
+  </div>
+
+  <div style="margin-top: 64px; padding: 24px; background: #14130f; color: #ece8dd; border-radius: 16px;">
+    <h3 style="font-family: var(--hand); font-size: 28px; margin: 0 0 8px; color: #fff;">The principle</h3>
+    <p style="font-family: var(--pen); font-size: 16px; line-height: 1.5; margin: 0; max-width: 720px;">Steal the assembly, not the aesthetic. Airbnb's hero, Uber's CTA discipline, Apple Fitness's tile rhythm, Linear's empty states, Waze's verbs, iMessage's gestures, Apple TV's pair codes — these are <i>solved problems</i>. We assemble them with HYROX context, our voice, and a coral-red focus accent. The Trakrr-ness is in the <b>combination and restraint</b>, not in any one custom-built shape.</p>
+  </div>
+</div>
+</body>
+</html>

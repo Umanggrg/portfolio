@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>04 — History flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .race-num { font-family: -apple-system, "SF Pro Rounded"; font-weight: 800; font-feature-settings: "tnum"; letter-spacing: -.02em; color: #fff; }
+  .race-num.lg { font-size: 26px; line-height: 1; }
+  .race-num.md { font-size: 16px; line-height: 1; }
+  .caps-w { font-family: var(--ui); font-weight: 700; font-size: 9px; letter-spacing: .14em; color: var(--text-night-3); text-transform: uppercase; }
+  .row-card { background: var(--night-2); border-radius: 10px; padding: 10px; display: flex; gap: 10px; align-items: center; }
+  .grid-cell { aspect-ratio: 1; border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">04 · Flow</div>
+    <h1>History</h1>
+    <p>Your private archive. Every race, every workout, every free run. Filterable, searchable, comparable. This is where you go before a goal race to study what's worked. Not a feed — a logbook.</p>
+  </header>
+
+  <h2 class="section"><span>The history view · five entry points</span><span class="num">04.1</span></h2>
+  <p class="lede">List · calendar · trends · search · race detail. Default is reverse-chronological list. The header toggles between modes.</p>
+
+  <div class="row-grid">
+    <!-- LIST -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">History</div><div style="font-size:16px;color:#fff;">🔍</div></div>
+        <div class="row-f" style="gap:5px;margin-top:8px;"><span class="chip" style="color:var(--coral);background:rgba(255,69,48,.12);border-color:var(--coral);font-size:10px;">List</span><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">Calendar</span><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">Trends</span></div>
+
+        <div class="caps-w" style="margin-top:14px;">THIS WEEK</div>
+        <div class="stack g6" style="margin-top:6px;">
+          <div class="row-card"><div style="width:40px;height:40px;border-radius:8px;background:var(--coral);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;"><div style="font-family:var(--ui);font-weight:800;font-size:11px;line-height:1;">SUN</div><div style="font-family:var(--ui);font-weight:800;font-size:14px;line-height:1;">9</div></div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Sunday HYROX sim</div><div class="caps-w" style="margin-top:1px;">FULL · 8 STATIONS</div></div><div style="text-align:right;"><div class="race-num lg">1:18:42</div><div style="font-size:9px;color:var(--green);font-weight:700;">−42s</div></div></div>
+          <div class="row-card"><div style="width:40px;height:40px;border-radius:8px;background:var(--night-3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-night-2);"><div style="font-family:var(--ui);font-weight:800;font-size:11px;line-height:1;">WED</div><div style="font-family:var(--ui);font-weight:800;font-size:14px;line-height:1;">5</div></div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Sled Pull ladder</div><div class="caps-w" style="margin-top:1px;">CUSTOM · 3 SETS</div></div><div style="text-align:right;"><div class="race-num lg">8:42</div></div></div>
+          <div class="row-card"><div style="width:40px;height:40px;border-radius:8px;background:var(--night-3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-night-2);"><div style="font-family:var(--ui);font-weight:800;font-size:11px;line-height:1;">MON</div><div style="font-family:var(--ui);font-weight:800;font-size:14px;line-height:1;">3</div></div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Lunch — free run</div><div class="caps-w" style="margin-top:1px;">5.2 KM</div></div><div style="text-align:right;"><div class="race-num lg">25:18</div></div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">LAST WEEK</div>
+        <div class="stack g6" style="margin-top:6px;">
+          <div class="row-card"><div style="width:40px;height:40px;border-radius:8px;background:var(--night-3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-night-2);"><div style="font-family:var(--ui);font-weight:800;font-size:11px;line-height:1;">SAT</div><div style="font-family:var(--ui);font-weight:800;font-size:14px;line-height:1;">1</div></div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Full HYROX</div><div class="caps-w" style="margin-top:1px;">FULL · PARTIAL</div></div><div style="text-align:right;"><div class="race-num lg">1:19:24</div></div></div>
+        </div>
+        <div class="tabbar"><div class="item"><div class="ic"></div>Feed</div><div class="item active"><div class="ic"></div>History</div><div class="item" style="color:var(--coral);"><div class="ic" style="border-color:var(--coral);background:var(--coral);"></div></div><div class="item"><div class="ic"></div>Profile</div><div class="item"><div class="ic"></div>Watch</div></div>
+      </div>
+      <div class="label"><strong>List</strong>grouped by week</div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">History</div><div style="font-size:16px;color:#fff;">🔍</div></div>
+        <div class="row-f" style="gap:5px;margin-top:8px;"><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">List</span><span class="chip" style="color:var(--coral);background:rgba(255,69,48,.12);border-color:var(--coral);font-size:10px;">Calendar</span><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">Trends</span></div>
+
+        <div class="row-f between" style="margin-top:14px;"><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:18px;color:#fff;">November</div><div style="display:flex;gap:8px;color:var(--text-night-2);font-size:12px;">← →</div></div>
+
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px;">
+          <div class="caps-w" style="text-align:center;">M</div><div class="caps-w" style="text-align:center;">T</div><div class="caps-w" style="text-align:center;">W</div><div class="caps-w" style="text-align:center;">T</div><div class="caps-w" style="text-align:center;">F</div><div class="caps-w" style="text-align:center;">S</div><div class="caps-w" style="text-align:center;">S</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:4px;">
+          <div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-rule);position:relative;"><div style="position:absolute;inset:2px;border-radius:1px;background:var(--green);opacity:.6;"></div></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-rule);position:relative;"><div style="position:absolute;inset:2px;border-radius:1px;background:var(--coral);opacity:.6;"></div></div><div class="grid-cell" style="background:var(--night-3);"></div>
+          <div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-rule);position:relative;"><div style="position:absolute;inset:2px;border-radius:1px;background:var(--green);opacity:.4;"></div></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-rule);position:relative;"><div style="position:absolute;inset:2px;border-radius:1px;background:var(--coral);"></div></div>
+          <div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-rule);position:relative;"><div style="position:absolute;inset:2px;border-radius:1px;background:var(--green);"></div></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div><div class="grid-cell" style="background:var(--night-3);"></div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:10px;font-size:9px;color:var(--text-night-2);font-family:var(--ui);"><div style="display:flex;gap:4px;align-items:center;"><span style="width:9px;height:9px;background:var(--coral);border-radius:1px;"></span>Full race</div><div style="display:flex;gap:4px;align-items:center;"><span style="width:9px;height:9px;background:var(--green);border-radius:1px;"></span>Custom / run</div></div>
+
+        <div style="margin-top:14px;background:var(--night-2);border-radius:10px;padding:10px;">
+          <div class="caps-w">NOV 9 · SUNDAY</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:700;font-size:14px;color:#fff;margin-top:2px;">Sunday HYROX sim — 1:18:42</div>
+          <div style="font-size:10px;color:var(--green);font-family:var(--ui);font-weight:700;">−42s PB</div>
+        </div>
+      </div>
+      <div class="label"><strong>Calendar</strong>month heatmap</div>
+    </div>
+
+    <!-- TRENDS -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">History</div><div style="font-size:16px;color:#fff;">🔍</div></div>
+        <div class="row-f" style="gap:5px;margin-top:8px;"><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">List</span><span class="chip" style="color:var(--text-night-3);border-color:var(--night-rule);font-size:10px;">Calendar</span><span class="chip" style="color:var(--coral);background:rgba(255,69,48,.12);border-color:var(--coral);font-size:10px;">Trends</span></div>
+
+        <div class="caps-w" style="margin-top:14px;">FINISH TIME · LAST 6 RACES</div>
+        <div style="background:var(--night-2);border-radius:10px;padding:12px;margin-top:6px;height:120px;position:relative;">
+          <svg viewBox="0 0 200 80" preserveAspectRatio="none" style="width:100%;height:100%;">
+            <polyline points="10,20 50,28 90,40 130,38 170,52 195,60" fill="none" stroke="#FF3B30" stroke-width="2.5"/>
+            <circle cx="195" cy="60" r="4" fill="#FF3B30"/>
+            <circle cx="10" cy="20" r="3" fill="#FF3B30" opacity=".6"/>
+            <line x1="0" y1="60" x2="200" y2="60" stroke="#2C2C2E" stroke-width=".8" stroke-dasharray="2 3"/>
+          </svg>
+          <div style="position:absolute;top:6px;right:8px;font-family:var(--ui);font-size:9px;color:var(--text-night-3);">1:24 → 1:18</div>
+        </div>
+        <div style="font-family:var(--hand);font-size:18px;color:#fff;margin-top:4px;line-height:1.2;">Six races, six gains. Trending down nicely.</div>
+
+        <div class="caps-w" style="margin-top:14px;">STATION DEEP DIVE</div>
+        <div class="stack g4" style="margin-top:6px;">
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;"><div style="font-size:11px;color:#fff;font-weight:700;">Ski Erg</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-family:var(--mono);font-size:11px;color:var(--green);font-weight:700;">−12s</span><div class="race-num md">3:42</div></div></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;"><div style="font-size:11px;color:#fff;font-weight:700;">Sled Push</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-family:var(--mono);font-size:11px;color:var(--green);font-weight:700;">−4s</span><div class="race-num md">2:08</div></div></div>
+          <div class="row-f between" style="background:rgba(255,69,48,.08);border:1px solid var(--coral);border-radius:8px;padding:8px 10px;"><div style="font-size:11px;color:#fff;font-weight:700;">Sled Pull</div><div style="display:flex;gap:6px;align-items:center;"><span style="font-family:var(--mono);font-size:11px;color:var(--coral);font-weight:700;">+18s</span><div class="race-num md">4:08</div></div></div>
+        </div>
+      </div>
+      <div class="label"><strong>Trends</strong>finish time + station drift</div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div style="background:var(--night-3);border-radius:999px;padding:10px 14px;display:flex;gap:8px;align-items:center;"><span style="font-size:12px;color:var(--coral);">🔍</span><span style="font-size:11px;color:#fff;flex:1;">sled pull</span><span style="font-size:11px;color:var(--text-night-3);">×</span></div>
+
+        <div class="caps-w" style="margin-top:14px;">4 RESULTS</div>
+        <div class="stack g6" style="margin-top:6px;">
+          <div class="row-card"><div style="width:36px;height:36px;border-radius:6px;background:var(--coral);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--ui);font-weight:800;font-size:10px;">11/9</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">In · Sunday HYROX</div><div style="font-size:9px;color:var(--text-night-3);">Station 6 · <b style="color:#fff;">4:08</b></div></div><div style="font-family:var(--mono);font-size:11px;color:var(--coral);font-weight:700;">+18s</div></div>
+          <div class="row-card"><div style="width:36px;height:36px;border-radius:6px;background:var(--night-3);display:flex;align-items:center;justify-content:center;color:var(--text-night-2);font-family:var(--ui);font-weight:800;font-size:10px;">11/5</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Custom · Sled Pull ladder</div><div style="font-size:9px;color:var(--text-night-3);">3 sets · <b style="color:#fff;">8:42</b> total</div></div></div>
+          <div class="row-card"><div style="width:36px;height:36px;border-radius:6px;background:var(--night-3);display:flex;align-items:center;justify-content:center;color:var(--text-night-2);font-family:var(--ui);font-weight:800;font-size:10px;">11/1</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">In · Full HYROX</div><div style="font-size:9px;color:var(--text-night-3);">Station 6 · <b style="color:#fff;">3:50</b></div></div><div style="font-family:var(--mono);font-size:11px;color:var(--green);font-weight:700;">avg</div></div>
+          <div class="row-card"><div style="width:36px;height:36px;border-radius:6px;background:var(--night-3);display:flex;align-items:center;justify-content:center;color:var(--text-night-2);font-family:var(--ui);font-weight:800;font-size:10px;">10/24</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">In · Saturday sim</div><div style="font-size:9px;color:var(--text-night-3);">Station 6 · <b style="color:#fff;">3:32</b></div></div><div style="font-family:var(--mono);font-size:11px;color:var(--green);font-weight:700;">PB</div></div>
+        </div>
+
+        <div style="margin-top:14px;background:var(--night-2);border-radius:10px;padding:10px;">
+          <div class="caps-w">YOUR SLED PULL</div>
+          <div style="display:flex;gap:10px;margin-top:6px;font-family:var(--ui);"><div><div style="font-size:9px;color:var(--text-night-3);">BEST</div><div style="font-size:14px;color:var(--green);font-weight:800;">3:32</div></div><div><div style="font-size:9px;color:var(--text-night-3);">AVG</div><div style="font-size:14px;color:#fff;font-weight:800;">3:50</div></div><div><div style="font-size:9px;color:var(--text-night-3);">LAST</div><div style="font-size:14px;color:var(--coral);font-weight:800;">4:08</div></div></div>
+        </div>
+      </div>
+      <div class="label"><strong>Search</strong>by station, type, date</div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Race detail · the deep view</span><span class="num">04.2</span></h2>
+  <p class="lede">Tap any list item → full detail. Splits, station-by-station, HR trace, weather, notes. Edit notes, add a photo after the fact, compare with another race.</p>
+
+  <div class="row-grid">
+    <!-- DETAIL -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:var(--text-night-2);">Nov 9 · Sunday</div><div style="color:#fff;font-size:14px;">···</div></div>
+        <div style="margin-top:10px;"><div class="caps-w">FULL HYROX · 8/8</div><div class="race-num" style="font-size:42px;margin-top:4px;letter-spacing:-.03em;">1:18:42</div><div style="font-size:10px;color:var(--green);font-weight:700;font-family:var(--ui);">−42s PB · 4th overall</div></div>
+
+        <div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;">
+          <div><div class="caps-w">RUN</div><div class="race-num md">38:12</div></div>
+          <div><div class="caps-w">STATION</div><div class="race-num md">40:30</div></div>
+          <div><div class="caps-w">AVG HR</div><div class="race-num md">168</div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:12px;">SEGMENTS</div>
+        <div class="stack g4" style="margin-top:4px;font-family:var(--ui);font-size:11px;color:#fff;">
+          <div class="row-f between"><span>1 km run</span><span class="mono">4:48</span></div>
+          <div class="row-f between"><span>Ski Erg · 1000m</span><span class="mono">3:42 <span style="color:var(--green);">−12s</span></span></div>
+          <div class="row-f between"><span>1 km run</span><span class="mono">4:52</span></div>
+          <div class="row-f between"><span>Sled Push · 50m</span><span class="mono">2:14</span></div>
+          <div class="row-f between" style="color:var(--coral);"><span>1 km run</span><span class="mono">5:08 +20s</span></div>
+          <div class="row-f between"><span>Sled Pull · 50m</span><span class="mono">4:08 <span style="color:var(--coral);">+18s</span></span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:12px;">HEART RATE</div>
+        <div style="background:var(--night-2);border-radius:8px;padding:8px;margin-top:4px;height:48px;position:relative;">
+          <svg viewBox="0 0 200 32" preserveAspectRatio="none" style="width:100%;height:100%;"><polyline points="0,20 20,18 40,12 60,10 80,8 100,14 120,6 140,4 160,10 180,12 200,8" fill="none" stroke="#FF3B30" stroke-width="1.2"/></svg>
+        </div>
+      </div>
+      <div class="label"><strong>Detail</strong>splits + HR trace</div>
+    </div>
+
+    <!-- NOTES + EDIT -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:var(--text-night-2);">Edit notes</div><div style="color:var(--coral);font-size:11px;font-weight:700;">Save</div></div>
+
+        <div class="caps-w" style="margin-top:14px;">CAPTION</div>
+        <div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:4px;font-size:12px;color:#fff;line-height:1.4;">3rd attempt this month. Wall Balls finally felt clean. Sled Pull still my weak spot but PR'd it by 8s. Vegas is coming.</div>
+
+        <div class="caps-w" style="margin-top:14px;">CONDITIONS</div>
+        <div class="stack g4" style="margin-top:4px;">
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;font-size:11px;color:#fff;"><span>Gym</span><span style="color:var(--text-night-2);">Brooklyn Strength</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;font-size:11px;color:#fff;"><span>Sled weight</span><span style="color:var(--text-night-2);">125 kg</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;font-size:11px;color:#fff;"><span>Felt</span><span style="color:var(--coral);">⚡ 8/10</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;font-size:11px;color:#fff;"><span>Slept</span><span style="color:var(--text-night-2);">7h 12m</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">PHOTOS</div>
+        <div style="display:flex;gap:6px;margin-top:4px;"><div class="photo" style="aspect-ratio:1;width:64px;border-color:var(--night-rule);background:var(--night-3);font-size:10px;">img</div><div class="photo" style="aspect-ratio:1;width:64px;border-color:var(--night-rule);font-size:10px;">+ add</div></div>
+      </div>
+      <div class="label"><strong>Edit notes</strong>caption, conditions, photos</div>
+    </div>
+
+    <!-- COMPARE -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:var(--text-night-2);">Compare</div><div></div></div>
+
+        <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="background:var(--night-2);border:1.5px solid var(--coral);border-radius:10px;padding:10px;text-align:center;"><div class="caps-w" style="color:var(--coral);">A · NOV 9</div><div class="race-num lg" style="margin-top:4px;">1:18:42</div></div>
+          <div style="background:var(--night-2);border:1px solid var(--night-rule);border-radius:10px;padding:10px;text-align:center;"><div class="caps-w">B · OCT 24</div><div class="race-num lg" style="margin-top:4px;">1:19:24</div></div>
+        </div>
+        <div style="text-align:center;font-family:var(--hand);font-size:22px;color:var(--green);margin-top:8px;">A faster by 0:42</div>
+
+        <div class="caps-w" style="margin-top:14px;">PER-SEGMENT DELTA</div>
+        <div class="stack g4" style="margin-top:6px;font-family:var(--ui);font-size:11px;">
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>1 km run</span><span style="color:var(--green);font-family:var(--mono);">−4s</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>Ski Erg</span><span style="color:var(--green);font-family:var(--mono);">−12s</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>Run</span><span style="color:var(--green);font-family:var(--mono);">−2s</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>Sled Push</span><span style="color:var(--coral);font-family:var(--mono);">+6s</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>Run</span><span style="color:var(--coral);font-family:var(--mono);">+20s</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:6px 10px;color:#fff;"><span>Sled Pull</span><span style="color:var(--coral);font-family:var(--mono);">+18s</span></div>
+        </div>
+        <div style="margin-top:10px;font-family:var(--hand);font-size:16px;color:#fff;">Killed it early. Faded after Sled Push.</div>
+      </div>
+      <div class="label"><strong>Compare</strong>two races side-by-side</div>
+    </div>
+
+    <!-- DETAIL · OVERFLOW MENU -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;justify-content:flex-end;background:rgba(0,0,0,.5);">
+        <div style="background:var(--night-2);border-radius:18px 18px 0 0;padding:14px 8px 20px;margin:0 -14px -12px;border-top:1px solid var(--night-rule);">
+          <div style="width:36px;height:4px;background:var(--text-night-3);border-radius:2px;margin:0 auto 12px;"></div>
+          <div class="stack g4">
+            <div style="padding:14px 16px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Post to feed</span><span style="color:var(--coral);">↗</span></div>
+            <div style="padding:14px 16px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Share image</span><span style="color:var(--text-night-3);">→</span></div>
+            <div style="padding:14px 16px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Compare to another race</span><span style="color:var(--text-night-3);">→</span></div>
+            <div style="padding:14px 16px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Edit notes</span><span style="color:var(--text-night-3);">→</span></div>
+            <div style="padding:14px 16px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Export · Apple Health</span><span style="color:var(--text-night-3);">→</span></div>
+            <div style="padding:14px 16px;font-size:13px;color:var(--coral);display:flex;justify-content:space-between;font-weight:700;"><span>Delete race</span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="label"><strong>Overflow</strong>actions sheet</div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Edge cases</span><span class="num">04.3</span></h2>
+  <div class="spec-grid">
+    <div class="spec"><h4>Empty (no races yet)</h4><p>"No races yet. Your first finish will live here forever." + coral CTA to start a race.</p></div>
+    <div class="spec"><h4>Partial / DNF</h4><p>Shows with grey "PARTIAL" tag. Still searchable. Excluded from PB calcs but counts toward streak.</p></div>
+    <div class="spec"><h4>Imported from Health</h4><p>Workouts imported from Apple Health appear with a small "↓ Health" tag. Less metadata; can be augmented.</p></div>
+    <div class="spec"><h4>Deleted race</h4><p>Hard-delete with confirm. We don't soft-delete — athletes deserve agency over their archive.</p></div>
+    <div class="spec"><h4>Race with no caption</h4><p>List shows "Sunday HYROX sim" (auto-title from date + type). Detail invites you to add notes.</p></div>
+    <div class="spec"><h4>Race not yet finished</h4><p>If you discarded mid-race, it doesn't appear in History at all — discard means discard.</p></div>
+  </div>
+</div>
+</body>
+</html>

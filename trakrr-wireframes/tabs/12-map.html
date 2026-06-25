@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>12 — App map</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; max-width: 1500px; }
+  .map .col h4 { font-family: var(--hand); font-size: 22px; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--coral); display: inline-block; }
+  .map .node { border: 1.5px solid var(--ink); border-radius: 10px; padding: 8px 10px; margin-bottom: 6px; font-family: var(--pen); font-size: 12px; line-height: 1.25; background: white; }
+  .map .node b { font-family: var(--hand); font-size: 16px; font-weight: 400; display: block; line-height: 1; margin-bottom: 2px; }
+  .map .node.modal { border-style: dashed; background: #f6f3ea; }
+  .map .node.coral { border-color: var(--coral); }
+  .map .node small { font-family: var(--mono); font-size: 9px; color: var(--ink-3); display: block; margin-top: 2px; }
+  .legend { display: flex; gap: 16px; margin-bottom: 24px; font-family: var(--pen); font-size: 12px; color: var(--ink-2); }
+  .legend .k { display: flex; gap: 6px; align-items: center; }
+  .legend .sw { width: 18px; height: 18px; border: 1.5px solid var(--ink); border-radius: 4px; }
+  .legend .sw.modal { border-style: dashed; background: #f6f3ea; }
+  .legend .sw.coral { border-color: var(--coral); background: #ffeae7; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">12 · Foundation</div>
+    <h1>App map — every screen, every modal</h1>
+    <p>Bird's eye of every surface in the wireframe set. Solid = full screen. Dashed = sheet / modal / overlay. Coral border = brand moment or hero surface.</p>
+  </header>
+
+  <div class="legend">
+    <div class="k"><div class="sw"></div> full screen</div>
+    <div class="k"><div class="sw modal"></div> sheet / modal / overlay</div>
+    <div class="k"><div class="sw coral"></div> hero / brand moment</div>
+    <div class="k">→ → → · same flow</div>
+  </div>
+
+  <div class="map">
+    <div class="col">
+      <h4>01 · Auth</h4>
+      <div class="node coral"><b>Splash</b>Sign in with Apple<small>01.1</small></div>
+      <div class="node modal"><b>Apple ID sheet</b>OS-provided<small>01.2</small></div>
+      <div class="node"><b>Create handle</b>@umanggrg + division<small>01.3</small></div>
+      <div class="node"><b>Permissions</b>HealthKit, Notifs, Location, Motion<small>01.4</small></div>
+      <div class="node"><b>Welcome</b>"Pick a goal" → race<small>01.5</small></div>
+    </div>
+
+    <div class="col">
+      <h4>02 · Feed (tab 1)</h4>
+      <div class="node coral"><b>Feed · populated</b>chronological cards<small>02.1</small></div>
+      <div class="node"><b>Feed · empty</b>"Feed is quiet"<small>02.2</small></div>
+      <div class="node"><b>Feed · loading</b>skeleton cards<small>02.3</small></div>
+      <div class="node modal"><b>Race detail sheet</b>tap card title/photo<small>02.4</small></div>
+      <div class="node modal"><b>Comments sheet</b>thread<small>02.5</small></div>
+      <div class="node modal"><b>Reaction picker</b>long-press emoji<small>02.6</small></div>
+      <div class="node modal"><b>Public profile sheet</b>tap athlete<small>02.7 → 06</small></div>
+    </div>
+
+    <div class="col">
+      <h4>03 · Race (tab 2) <span class="coral-text">★</span></h4>
+      <div class="node coral"><b>Ready to race</b>Solo / Duo · target · predicted finish<small>03.1</small></div>
+      <div class="node modal"><b>Target time picker</b>wheel<small>03.2</small></div>
+      <div class="node modal"><b>Duo pairing — host</b>6-char code<small>03.3</small></div>
+      <div class="node modal"><b>Duo pairing — guest</b>code input<small>03.4</small></div>
+      <div class="node modal"><b>Duo connected</b>"with Sarah"<small>03.5</small></div>
+      <div class="node"><b>Pre-race countdown</b>3 · 2 · 1<small>03.6</small></div>
+      <div class="node coral"><b>In-race · run segment</b><small>03.7</small></div>
+      <div class="node coral"><b>In-race · station segment</b><small>03.8</small></div>
+      <div class="node"><b>Pace ghost · ahead</b><small>03.9</small></div>
+      <div class="node"><b>Pace ghost · on</b><small>03.10</small></div>
+      <div class="node"><b>Pace ghost · behind</b><small>03.11</small></div>
+      <div class="node modal"><b>Coaching cue overlay</b>HOLD/SLOW/PUSH<small>03.12</small></div>
+      <div class="node modal"><b>Mid-race pause</b>resume / end<small>03.13</small></div>
+      <div class="node modal"><b>Splits peek</b>swipe-up sheet<small>03.14</small></div>
+      <div class="node coral"><b>Finish transition</b>final station → done<small>03.15</small></div>
+      <div class="node coral"><b>Post-race summary</b>pinned hero + tabs<small>03.16</small></div>
+      <div class="node"><b>Summary · Overview</b><small>03.17</small></div>
+      <div class="node"><b>Summary · Runs</b><small>03.18</small></div>
+      <div class="node"><b>Summary · Stations</b><small>03.19</small></div>
+      <div class="node"><b>Summary · HR</b><small>03.20</small></div>
+      <div class="node coral"><b>Summary · Story (What Went Wrong)</b><small>03.21</small></div>
+      <div class="node modal"><b>Attach photo</b>camera roll<small>03.22</small></div>
+      <div class="node modal"><b>Add notes</b>text input<small>03.23</small></div>
+      <div class="node modal"><b>Share card</b>compose<small>03.24</small></div>
+      <div class="node"><b>Custom workout builder</b>add stations<small>03.25</small></div>
+      <div class="node modal"><b>Station picker</b>16 options<small>03.26</small></div>
+      <div class="node"><b>Free run</b>distance/pace/HR<small>03.27</small></div>
+      <div class="node"><b>Quick station</b>single-station log<small>03.28</small></div>
+    </div>
+
+    <div class="col">
+      <h4>04 · History (tab 3)</h4>
+      <div class="node"><b>History · all</b>filter chips + list<small>04.1</small></div>
+      <div class="node"><b>History · empty</b>"No races yet"<small>04.2</small></div>
+      <div class="node modal"><b>Search races</b>by name/date<small>04.3</small></div>
+      <div class="node modal"><b>Custom date range</b>picker<small>04.4</small></div>
+      <div class="node"><b>Compare view</b>race A vs race B<small>04.5</small></div>
+      <div class="node modal"><b>Compare picker</b>choose second race<small>04.6</small></div>
+      <div class="node"><b>Photo gallery</b>grid of all race photos<small>04.7</small></div>
+
+      <h4 style="margin-top:18px;">05 · Profile (tab 4)</h4>
+      <div class="node coral"><b>Profile · self</b>hero + tiles + next up<small>05.1</small></div>
+      <div class="node"><b>Profile · empty (new user)</b><small>05.2</small></div>
+      <div class="node modal"><b>Edit profile</b>name, handle, avatar<small>05.3</small></div>
+      <div class="node modal"><b>Share profile</b>QR + link<small>05.4</small></div>
+      <div class="node"><b>Performance detail</b>HYROX pillars<small>05.5</small></div>
+      <div class="node"><b>Fatigue Fingerprint</b>longitudinal heatmap<small>05.6 ★new</small></div>
+      <div class="node"><b>Station Intelligence</b>per-station breakdown<small>05.7 ★new</small></div>
+      <div class="node"><b>Engine Score trend</b>chart<small>05.8</small></div>
+      <div class="node"><b>Trends · HR drift</b><small>05.9</small></div>
+      <div class="node"><b>Trends · Recovery</b><small>05.10</small></div>
+      <div class="node"><b>Trends · Intensity mix</b><small>05.11</small></div>
+      <div class="node modal"><b>Add upcoming race</b>event picker<small>05.12</small></div>
+      <div class="node modal"><b>Streak detail</b>history of streak<small>05.13</small></div>
+    </div>
+
+    <div class="col">
+      <h4>06 · Social</h4>
+      <div class="node"><b>Search</b>handle input + results<small>06.1</small></div>
+      <div class="node"><b>Search · empty</b>suggested athletes<small>06.2</small></div>
+      <div class="node"><b>Search · no results</b><small>06.3</small></div>
+      <div class="node coral"><b>Public profile</b>follow + recent 3<small>06.4</small></div>
+      <div class="node modal"><b>Followers list</b><small>06.5</small></div>
+      <div class="node modal"><b>Following list</b><small>06.6</small></div>
+      <div class="node modal"><b>Unfollow confirm</b><small>06.7</small></div>
+
+      <h4 style="margin-top:18px;">07 · Settings</h4>
+      <div class="node"><b>Settings root</b>account + appearance + units<small>07.1</small></div>
+      <div class="node"><b>Account</b>email · sign-out<small>07.2</small></div>
+      <div class="node"><b>Appearance</b>System / Light / Dark<small>07.3</small></div>
+      <div class="node"><b>HYROX defaults</b>division · max HR · zones<small>07.4</small></div>
+      <div class="node"><b>In-race displays</b>which metrics to show<small>07.5</small></div>
+      <div class="node"><b>Notifications</b>followers · cues · weekly<small>07.6</small></div>
+      <div class="node"><b>Privacy</b>profile · races · location<small>07.7</small></div>
+      <div class="node"><b>Watch</b>haptics · alert volume<small>07.8</small></div>
+      <div class="node"><b>Data & devices</b>HealthKit · sensors<small>07.9</small></div>
+      <div class="node"><b>About</b>version · legal · HYROX™ disclaimer<small>07.10</small></div>
+      <div class="node modal"><b>Delete account</b>confirm<small>07.11</small></div>
+
+      <h4 style="margin-top:18px;">08 · Watch</h4>
+      <div class="node"><b>Race · main</b>segment + timer + HR<small>08.1</small></div>
+      <div class="node"><b>Race · splits</b>scrollable list<small>08.2</small></div>
+      <div class="node"><b>Race · HR</b>zone bar + ceiling<small>08.3</small></div>
+      <div class="node coral"><b>Alert · HOLD</b>green<small>08.4</small></div>
+      <div class="node coral"><b>Alert · SLOW</b>amber<small>08.5</small></div>
+      <div class="node coral"><b>Alert · REDLINE</b>red<small>08.6</small></div>
+      <div class="node coral"><b>Alert · RECOVER</b>blue<small>08.7</small></div>
+      <div class="node coral"><b>Alert · PUSH</b>lime<small>08.8</small></div>
+      <div class="node"><b>Station transition</b>haptic confirm<small>08.9</small></div>
+      <div class="node"><b>Watch finish</b>"see phone"<small>08.10</small></div>
+      <div class="node modal"><b>Complication · circular</b><small>08.11</small></div>
+      <div class="node modal"><b>Complication · rectangular</b><small>08.12</small></div>
+      <div class="node modal"><b>Live Activity · lock screen</b><small>08.13</small></div>
+      <div class="node modal"><b>Live Activity · Dynamic Island</b><small>08.14</small></div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>One IA tweak I'd propose</span><span class="num">opt</span></h2>
+  <p class="lede">You asked me to flag if I found something compelling. Here it is — take it or leave it.</p>
+  <div class="row-grid">
+    <div class="box" style="max-width: 460px; padding: 18px;">
+      <div class="caps">Current</div>
+      <h3 style="font-family: var(--hand); font-size: 26px; margin: 4px 0 8px;">Feed · Race · History · Profile</h3>
+      <p style="font-family: var(--pen); font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0;">Works, but Race buries Custom Workout, Free Run, and Quick Station under a sub-screen. And History is mostly a list — it doesn't earn its own tab if the user races 2–3×/week.</p>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="box coral" style="max-width: 460px; padding: 18px; border-width: 2px;">
+      <div class="caps coral-text">Proposed</div>
+      <h3 style="font-family: var(--hand); font-size: 26px; margin: 4px 0 8px;">Feed · Train · You</h3>
+      <p style="font-family: var(--pen); font-size: 13.5px; color: var(--ink-2); line-height: 1.5; margin: 0;"><b>Feed</b> unchanged. <b>Train</b> = a vertical menu of Race / Custom / Free Run / Quick Station with the central red CTA always being "Race" — the surface athletes hit before every session. <b>You</b> = profile + history merged into one scrollable identity surface (hero → next up → trends → recent races). Three tabs, fewer dead-ends, history-as-a-list lives where it's already wanted.</p>
+    </div>
+  </div>
+  <p style="font-family: var(--hand); font-size: 22px; margin-top: 16px; color: var(--ink-2);">→ For the rest of these wireframes I'm sticking with your <b>4-tab</b> structure. The 3-tab version is in my back pocket if you want to explore it.</p>
+</div>
+</body>
+</html>

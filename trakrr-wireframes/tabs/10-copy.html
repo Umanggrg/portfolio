@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>10 — Copy deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .copy-table { width: 100%; border-collapse: collapse; font-family: var(--ui); font-size: 12px; margin-top: 8px; }
+  .copy-table th { text-align: left; font-family: var(--ui); font-weight: 700; font-size: 9px; letter-spacing: .14em; color: var(--ink-2); text-transform: uppercase; padding: 8px 10px 6px; border-bottom: 1.5px solid var(--ink); }
+  .copy-table td { padding: 10px; border-bottom: 1px solid rgba(13,13,15,.1); vertical-align: top; line-height: 1.4; color: var(--ink); }
+  .copy-table td.key { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--coral); white-space: nowrap; }
+  .copy-table td.note { font-family: var(--script); font-size: 14px; color: var(--ink-2); }
+  .copy-table tr:hover { background: var(--cream-2); }
+  .stamp { display: inline-block; background: var(--coral); color: #fff; font-family: var(--ui); font-weight: 800; font-size: 10px; letter-spacing: .06em; padding: 3px 8px; border-radius: 4px; transform: rotate(-1deg); }
+  .principle { background: var(--cream-2); border: 2px solid var(--ink); border-radius: 14px; padding: 18px; font-family: var(--script); font-size: 18px; color: var(--ink); margin-top: 12px; max-width: 720px; line-height: 1.5; }
+  .principle b { display: block; font-family: var(--ui); font-weight: 800; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">10 · Reference</div>
+    <h1>The copy deck <span class="stamp">SOURCE OF TRUTH</span></h1>
+    <p>Every string in the app, in one place. Tone is set once here so it stays consistent across feed, race, profile, push, and email. When you change a string, change it here first.</p>
+  </header>
+
+  <h2 class="section"><span>Voice principles</span><span class="num">10.1</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;">
+    <div class="principle"><b>Direct, never cute</b>"Race ready" not "Let's gooo!" Athletes are working — respect their time. No exclamation marks except after PBs and finishes.</div>
+    <div class="principle"><b>Numbers do the work</b>"−42s vs PB" tells the whole story. Don't add "Amazing!" — the number is already amazing. Show, don't shout.</div>
+    <div class="principle"><b>Coach not cheerleader</b>HOLD. SLOW. PUSH. We tell you what to do, not how to feel. Like the calm voice in your ear when shit's hard.</div>
+    <div class="principle"><b>HYROX vocab is sacred</b>Stations are named correctly: "Sled Push", "Burpee Broad Jump", "Wall Balls". Never "burpees" — they're "broad jumps". Never "row machine" — it's "Row".</div>
+    <div class="principle"><b>Empty states have edges</b>"No races yet. Strap in." beats "You haven't recorded any workouts." Short. Active. A little sharp.</div>
+    <div class="principle"><b>Errors blame the world</b>"Watch lost signal" not "You forgot to enable bluetooth." Even when it's the user, we eat it.</div>
+  </div>
+
+  <h2 class="section"><span>Onboarding · 01</span><span class="num">10.2</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">welcome.title</td><td><b>Race ready.</b></td><td class="note">two words. period. that's the whole brand.</td></tr>
+      <tr><td class="key">welcome.sub</td><td>The HYROX race tracker for the wrist.</td><td class="note">"for the wrist" — anchors watch-first</td></tr>
+      <tr><td class="key">welcome.cta</td><td>Get started</td><td></td></tr>
+      <tr><td class="key">welcome.signin</td><td>I have an account</td><td></td></tr>
+      <tr><td class="key">division.title</td><td>Pick your division.</td><td></td></tr>
+      <tr><td class="key">division.sub</td><td>You can change this anytime.</td><td class="note">de-stress the choice</td></tr>
+      <tr><td class="key">division.women_open</td><td>Women's Open</td><td></td></tr>
+      <tr><td class="key">division.pro</td><td>Pro</td><td></td></tr>
+      <tr><td class="key">division.doubles</td><td>Doubles</td><td></td></tr>
+      <tr><td class="key">division.helper</td><td>Doubles & relay let you tag a partner.</td><td></td></tr>
+      <tr><td class="key">watch.title</td><td>Pair your watch.</td><td></td></tr>
+      <tr><td class="key">watch.sub</td><td>This is where the race happens. Phone's the recap.</td><td class="note">north star line — say it out loud</td></tr>
+      <tr><td class="key">watch.cta_pair</td><td>Pair now</td><td></td></tr>
+      <tr><td class="key">watch.cta_skip</td><td>I'll do it later</td><td></td></tr>
+      <tr><td class="key">goal.title</td><td>What are you training for?</td><td></td></tr>
+      <tr><td class="key">goal.next_race</td><td>A specific race</td><td></td></tr>
+      <tr><td class="key">goal.pb</td><td>Beat my PB</td><td></td></tr>
+      <tr><td class="key">goal.fitness</td><td>General fitness</td><td></td></tr>
+      <tr><td class="key">goal.qualifier</td><td>Qualifier time</td><td></td></tr>
+      <tr><td class="key">notif.title</td><td>One last thing.</td><td></td></tr>
+      <tr><td class="key">notif.sub</td><td>We'll only ping you for races, reactions, and PB alerts. No spam, ever.</td><td class="note">earn the permission</td></tr>
+      <tr><td class="key">notif.allow</td><td>Allow notifications</td><td></td></tr>
+      <tr><td class="key">notif.skip</td><td>Not now</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Race · 03</span><span class="num">10.3</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">race.cta_start</td><td>START RACE</td><td class="note">uppercase only place in the app</td></tr>
+      <tr><td class="key">race.countdown.3</td><td>3</td><td></td></tr>
+      <tr><td class="key">race.countdown.go</td><td>GO</td><td></td></tr>
+      <tr><td class="key">race.label.on_pace</td><td>ON PACE</td><td></td></tr>
+      <tr><td class="key">race.label.ahead</td><td>AHEAD ▲</td><td></td></tr>
+      <tr><td class="key">race.label.behind</td><td>BEHIND ▼</td><td></td></tr>
+      <tr><td class="key">race.cue.hold.title</td><td>HOLD</td><td></td></tr>
+      <tr><td class="key">race.cue.hold.sub</td><td>staying on target</td><td class="note">cues: one word, two-word sub</td></tr>
+      <tr><td class="key">race.cue.slow.title</td><td>SLOW</td><td></td></tr>
+      <tr><td class="key">race.cue.slow.sub</td><td>HR climbing too fast</td><td></td></tr>
+      <tr><td class="key">race.cue.redline.title</td><td>REDLINE</td><td></td></tr>
+      <tr><td class="key">race.cue.redline.sub</td><td>ease or you blow</td><td class="note">scary on purpose</td></tr>
+      <tr><td class="key">race.cue.recover.title</td><td>RECOVER</td><td></td></tr>
+      <tr><td class="key">race.cue.recover.sub</td><td>drop to Z3 before station</td><td></td></tr>
+      <tr><td class="key">race.cue.push.title</td><td>PUSH</td><td></td></tr>
+      <tr><td class="key">race.cue.push.sub</td><td>last station — empty it</td><td></td></tr>
+      <tr><td class="key">race.station.advance</td><td>Tap to start Run {n} →</td><td></td></tr>
+      <tr><td class="key">race.pause.title</td><td>Paused.</td><td></td></tr>
+      <tr><td class="key">race.pause.resume</td><td>RESUME</td><td></td></tr>
+      <tr><td class="key">race.pause.end</td><td>End race</td><td></td></tr>
+      <tr><td class="key">race.end.confirm.title</td><td>End the race here?</td><td></td></tr>
+      <tr><td class="key">race.end.confirm.sub</td><td>You're 5/8 in. We'll save what you've got and call it a partial.</td><td class="note">honest, no shame</td></tr>
+      <tr><td class="key">race.end.confirm.cta</td><td>End and save</td><td></td></tr>
+      <tr><td class="key">race.finish.title</td><td>Done.</td><td></td></tr>
+      <tr><td class="key">race.finish.pb</td><td>New PB by {n}s 🔥</td><td class="note">only fire emoji in the app</td></tr>
+      <tr><td class="key">race.finish.no_pb</td><td>{n}s off your PB.</td><td class="note">no apology — just the number</td></tr>
+      <tr><td class="key">race.error.watch_lost</td><td>Watch lost signal. We're holding the clock.</td><td class="note">we eat it, never blame user</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Feed · 02</span><span class="num">10.4</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">feed.tab.feed</td><td>Feed</td><td></td></tr>
+      <tr><td class="key">feed.tab.race</td><td>Race</td><td></td></tr>
+      <tr><td class="key">feed.empty.title</td><td>Quiet around here.</td><td></td></tr>
+      <tr><td class="key">feed.empty.sub</td><td>Follow some athletes or run a race — we'll fill this up.</td><td></td></tr>
+      <tr><td class="key">feed.empty.cta</td><td>Find athletes</td><td></td></tr>
+      <tr><td class="key">feed.card.pb_badge</td><td>NEW PB</td><td></td></tr>
+      <tr><td class="key">feed.card.partial</td><td>partial · {n}/8</td><td class="note">always show partial transparently</td></tr>
+      <tr><td class="key">feed.react.fire</td><td>🔥</td><td></td></tr>
+      <tr><td class="key">feed.react.medal</td><td>🏅</td><td></td></tr>
+      <tr><td class="key">feed.react.muscle</td><td>💪</td><td></td></tr>
+      <tr><td class="key">feed.comment.placeholder</td><td>Say something to {name}…</td><td></td></tr>
+      <tr><td class="key">feed.comment.empty</td><td>Be the first to comment.</td><td></td></tr>
+      <tr><td class="key">feed.filter.all</td><td>All</td><td></td></tr>
+      <tr><td class="key">feed.filter.pbs</td><td>PBs only</td><td></td></tr>
+      <tr><td class="key">feed.filter.division</td><td>My division</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Profile + History · 04 / 05</span><span class="num">10.5</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">profile.streak</td><td>{n} week streak 🔥</td><td></td></tr>
+      <tr><td class="key">profile.empty.title</td><td>No races yet. Strap in.</td><td class="note">flagship empty state</td></tr>
+      <tr><td class="key">profile.empty.cta</td><td>Start your first race</td><td></td></tr>
+      <tr><td class="key">profile.share.title</td><td>Share your PB</td><td></td></tr>
+      <tr><td class="key">history.section.this_month</td><td>This month</td><td></td></tr>
+      <tr><td class="key">history.section.last_30</td><td>Last 30 days</td><td></td></tr>
+      <tr><td class="key">history.detail.wwwr</td><td>What went wrong</td><td class="note">internal: WWWR</td></tr>
+      <tr><td class="key">history.detail.wwwr.sub</td><td>The 3 stations that cost you the most vs target.</td><td></td></tr>
+      <tr><td class="key">follow.cta_follow</td><td>Follow</td><td></td></tr>
+      <tr><td class="key">follow.cta_following</td><td>Following ✓</td><td></td></tr>
+      <tr><td class="key">follow.cta_requested</td><td>Requested</td><td></td></tr>
+      <tr><td class="key">follow.cta_follow_back</td><td>Follow back</td><td></td></tr>
+      <tr><td class="key">follow.block.title</td><td>Block @{handle}?</td><td></td></tr>
+      <tr><td class="key">follow.block.sub</td><td>They won't find your profile, see your races, or message you. You won't see them either.</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Push notifications</span><span class="num">10.6</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Trigger</th><th style="width:42%;">Title / body</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">push.pb_new</td><td><b>New PB.</b><br>You beat your best by {n}s. Sunday sim · 1:18:42.</td><td class="note">period not exclamation</td></tr>
+      <tr><td class="key">push.reaction</td><td><b>{name} 🔥 your race.</b><br>+{n} others reacted to Sunday sim.</td><td></td></tr>
+      <tr><td class="key">push.comment</td><td><b>{name}: "{snippet}…"</b><br>on your Sunday sim</td><td></td></tr>
+      <tr><td class="key">push.follower</td><td><b>{name} is following you.</b><br>{handle} · {n} mutual</td><td></td></tr>
+      <tr><td class="key">push.race_tomorrow</td><td><b>Race tomorrow.</b><br>Sunday HYROX sim — 9:00 AM. Hydrate tonight.</td><td class="note">actionable, not pep talk</td></tr>
+      <tr><td class="key">push.weekly_summary</td><td><b>Your week.</b><br>3 races · 1 PB · 12-week streak intact.</td><td></td></tr>
+      <tr><td class="key">push.streak_warning</td><td><b>Streak ends tomorrow.</b><br>You haven't logged a session in 5 days. Even a 20-min run counts.</td><td></td></tr>
+      <tr><td class="key">push.watch_battery</td><td><b>Watch is at 12%.</b><br>Plug in before tomorrow's race.</td><td class="note">care, not nag</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Errors & edge states</span><span class="num">10.7</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">err.offline</td><td><b>You're offline.</b> Your race is saved locally and will sync when you're back.</td><td class="note">always reassure</td></tr>
+      <tr><td class="key">err.watch_disconnected</td><td><b>Watch disconnected.</b> Phone's holding the clock. Reconnect to keep HR & pace.</td><td></td></tr>
+      <tr><td class="key">err.no_hr</td><td><b>No heart rate.</b> Wrist might be too loose. Tighten and try again — your pace data is fine.</td><td></td></tr>
+      <tr><td class="key">err.gps_weak</td><td><b>GPS weak.</b> Holding pace from cadence. Step outside the gym if you can.</td><td></td></tr>
+      <tr><td class="key">err.race_corrupted</td><td><b>This race didn't save cleanly.</b> We've got fragments. Open the recovery view?</td><td></td></tr>
+      <tr><td class="key">err.account_locked</td><td><b>Too many tries.</b> Wait 5 minutes or reset your password.</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="section"><span>Watch strings · 08</span><span class="num">10.8</span></h2>
+  <table class="copy-table">
+    <thead><tr><th style="width:160px;">Key</th><th style="width:42%;">String</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="key">w.home.start</td><td>START RACE</td><td></td></tr>
+      <tr><td class="key">w.paused.resume</td><td>RESUME</td><td></td></tr>
+      <tr><td class="key">w.paused.end</td><td>END</td><td></td></tr>
+      <tr><td class="key">w.station.tap</td><td>Tap to start Run {n}</td><td></td></tr>
+      <tr><td class="key">w.finish.title</td><td>FINISHED</td><td></td></tr>
+      <tr><td class="key">w.finish.pb</td><td>NEW PB</td><td></td></tr>
+      <tr><td class="key">w.finish.handoff</td><td>open on phone →</td><td></td></tr>
+      <tr><td class="key">w.complic.next_race</td><td>NEXT RACE</td><td></td></tr>
+      <tr><td class="key">w.complic.days</td><td>DAYS TO RACE</td><td></td></tr>
+      <tr><td class="key">w.live.label</td><td>RACE LIVE · SEG {n}/8</td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

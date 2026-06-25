@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>00 — System & language</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">00 · Foundation</div>
+    <h1>Visual system audit & language</h1>
+    <p>An honest look at what's there, what's working, and the evolution I'd commit to. Read this before the surface tabs — every screen downstream is built on these choices.</p>
+  </header>
+
+  <h2 class="section"><span>Audit of the current system</span><span class="num">00.1</span></h2>
+  <p class="lede">Pulling apart the existing tokens. Keep, evolve, kill.</p>
+
+  <div class="spec-grid">
+    <div class="spec"><h4>Dark-first ✓ keep</h4><p>The brand lives at night. Athletes are mid-effort, indoors under bad gym lighting, or outside at dawn. Dark-first is correct. <b>Decision:</b> commit harder — light mode is a "respect the OS" courtesy, not a co-equal design.</p></div>
+    <div class="spec"><h4>SF Pro throughout ✓ keep</h4><p>It's iOS-native, ships free, and Apple Fitness uses it. <b>Evolve:</b> reserve SF Pro Rounded for timer / hero numerics only. SF Pro Text for everything else. The rounded everywhere is too soft for "earned confidence."</p></div>
+    <div class="spec"><h4>Coral #FF3B30 ⚠ evolve</h4><p>It's iOS system red. Means "destructive" to half your users. Same hex is "stop / cancel / delete." <b>Recommend</b> shifting 8° hotter to <b>#FF4530</b> — keeps the burning warmth, lets it read as <i>focus</i> not <i>danger</i>. Sub-12% of any surface.</p></div>
+    <div class="spec"><h4>Cards everywhere ⚠ evolve</h4><p>Cards as the ONLY unit makes every screen feel like a settings page. <b>Recommend</b> reserving cards for: feed items, history items, race summary blocks. In-race screens are typographic, not cardified. Profile hero is full-bleed, not boxed.</p></div>
+    <div class="spec"><h4>12pt radius ⚠ evolve</h4><p>12pt is mid-2010s iOS. <b>Recommend</b> a two-tier radius: <b>16pt</b> for cards, <b>22pt</b> for full-bleed sheets and pills. Anything pressable bigger than 56pt tall gets 22pt.</p></div>
+    <div class="spec"><h4>24pt margin ✓ keep</h4><p>Apple Fitness standard. Don't fight it.</p></div>
+    <div class="spec"><h4>Success / warning greens ⚠ evolve</h4><p>System greens are friendly. In race context they need to be <i>tools</i>, not encouragement. <b>Recommend</b> a colder #2BC758 for "ON PACE" so it doesn't compete with coral for emotional weight.</p></div>
+    <div class="spec"><h4>Type scale ⚠ thin it out</h4><p>Race timer / hero / title / headline / body / caption / caps — that's <b>7 sizes</b>. Real life: you'll use 4. Race-only 72pt, hero 28pt, body 17pt, caps 10pt. Cut display 26pt and title 22pt — they overlap.</p></div>
+    <div class="spec"><h4>Motion spring 0.4/0.8 ✓ keep</h4><p>It's iOS-native and not bouncy. Lock it as the only spring in the system. Document <b>three</b> motion roles: state-change, alert-takeover, ambient (HR pulse). Nothing else gets to animate.</p></div>
+  </div>
+
+  <h2 class="section"><span>The palette</span><span class="num">00.2</span></h2>
+  <p class="lede">Two modes. Dark is canon. Light is the considerate companion. Coral is a focusing tool, not a brand wash.</p>
+
+  <h3 class="row">Dark mode <span class="tag">canonical · race + after-dark</span></h3>
+  <div class="row-grid tight">
+    <div class="swatch"><div class="chip-color" style="background:#0A0A0B"></div><div class="name">Night</div><div class="hex">#0A0A0B · base</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#141416"></div><div class="name">Surface</div><div class="hex">#141416 · cards</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#1C1C1F"></div><div class="name">Elevated</div><div class="hex">#1C1C1F · sheets</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#F5F5F7"></div><div class="name">Text 1</div><div class="hex">#F5F5F7</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#8E8E93"></div><div class="name">Text 2</div><div class="hex">#8E8E93</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#636366"></div><div class="name">Text 3</div><div class="hex">#636366</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#2C2C2E"></div><div class="name">Hairline</div><div class="hex">#2C2C2E</div></div>
+  </div>
+
+  <h3 class="row">Light mode <span class="tag">considerate · daytime / share cards</span></h3>
+  <div class="row-grid tight">
+    <div class="swatch"><div class="chip-color" style="background:#FBFAF6"></div><div class="name">Paper</div><div class="hex">#FBFAF6 · base</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#FFFFFF"></div><div class="name">Surface</div><div class="hex">#FFFFFF · cards</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#F1EEE5"></div><div class="name">Elevated</div><div class="hex">#F1EEE5 · sheets</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#0E0E10"></div><div class="name">Text 1</div><div class="hex">#0E0E10</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#4A4A4F"></div><div class="name">Text 2</div><div class="hex">#4A4A4F</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#8A8682"></div><div class="name">Text 3</div><div class="hex">#8A8682</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#E4DFD4"></div><div class="name">Hairline</div><div class="hex">#E4DFD4</div></div>
+  </div>
+
+  <h3 class="row">Accent + state <span class="tag">cross-mode</span></h3>
+  <div class="row-grid tight">
+    <div class="swatch"><div class="chip-color" style="background:#FF4530"></div><div class="name">Coral</div><div class="hex">#FF4530 · focus</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#2BC758"></div><div class="name">On pace</div><div class="hex">#2BC758</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#FFB020"></div><div class="name">Slow</div><div class="hex">#FFB020</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#FF3B30"></div><div class="name">Redline</div><div class="hex">#FF3B30</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#3A82F7"></div><div class="name">Recover</div><div class="hex">#3A82F7</div></div>
+    <div class="swatch"><div class="chip-color" style="background:#BFFF3E"></div><div class="name">Push</div><div class="hex">#BFFF3E</div></div>
+  </div>
+
+  <h2 class="section"><span>Type scale</span><span class="num">00.3</span></h2>
+  <p class="lede">Four roles, two families. SF Pro Rounded for numerics only. SF Pro Text for everything that isn't a clock.</p>
+
+  <div style="border: 1.5px solid var(--ink); border-radius: 12px; padding: 18px 22px; max-width: 920px;">
+    <div class="type-row">
+      <div class="meta"><strong>Cathedral</strong>72 / 80 · Rounded Heavy · tnum</div>
+      <div class="sample" style="font-size: 64px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; font-feature-settings: 'tnum';">00:42:18</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Hero</strong>34 / 36 · Rounded Heavy</div>
+      <div class="sample" style="font-size: 34px; font-weight: 900; letter-spacing: -0.02em;">Sled Push</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Display</strong>26 / 30 · Rounded Heavy</div>
+      <div class="sample" style="font-size: 26px; font-weight: 800; letter-spacing: -0.01em;">Sarah Chen</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Headline</strong>17 / 22 · Text Semibold</div>
+      <div class="sample" style="font-size: 17px; font-weight: 600;">Run 7 was where you lost it.</div>
+    </div>
+    <div class="type-row">
+      <div class="meta"><strong>Body</strong>15 / 21 · Text Regular</div>
+      <div class="sample" style="font-size: 15px;">HR climbed to 184 on the sled push and never came back to zone 3 — the next four stations all ran 8% slower than your average.</div>
+    </div>
+    <div class="type-row" style="border-bottom: none;">
+      <div class="meta"><strong>Caps</strong>10 / 14 · Text Heavy · 0.16 tracking · UPPER</div>
+      <div class="sample" style="font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;">STATION 7 OF 16 · WALL BALLS</div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Spacing, radii, touch</span><span class="num">00.4</span></h2>
+  <div class="spec-grid">
+    <div class="spec"><h4>Screen margin</h4><p>24pt left/right · 16pt top under nav</p></div>
+    <div class="spec"><h4>Card padding</h4><p>20pt all sides (was 16, bumped for breathing room)</p></div>
+    <div class="spec"><h4>Card radius</h4><p>16pt (was 12) · 22pt for full-bleed sheets</p></div>
+    <div class="spec"><h4>Stack rhythm</h4><p>8 · 12 · 20 · 32. No 6, no 14, no 24. Pick from the scale.</p></div>
+    <div class="spec"><h4>Race touch target</h4><p>64pt min (was 60). Sweaty hands deserve more.</p></div>
+    <div class="spec"><h4>Standard touch</h4><p>44pt min everywhere else. Apple HIG.</p></div>
+  </div>
+
+  <h2 class="section"><span>Motion principles</span><span class="num">00.5</span></h2>
+  <p class="lede">Three motion roles. Anything that doesn't fit one of these doesn't get to animate.</p>
+  <div class="spec-grid">
+    <div class="spec"><h4>1 · State change</h4><p><b>spring(0.4, 0.8)</b> · card mount, sheet present, tab swap. The default. 90% of motion.</p></div>
+    <div class="spec"><h4>2 · Alert takeover</h4><p><b>200ms ease-out scale 0.9→1.0 + fade</b> · the 5 watch overlays. Hard, decisive, no bounce. Paired with haptic.</p></div>
+    <div class="spec"><h4>3 · Ambient</h4><p><b>1.4s ease-in-out pulse</b> · live HR dot, active streak flame. Background life. Disabled under Reduce Motion.</p></div>
+  </div>
+
+  <h2 class="section"><span>Iconography & illustration stance</span><span class="num">00.6</span></h2>
+  <div class="spec-grid">
+    <div class="spec"><h4>Icons → SF Symbols only</h4><p>Custom icons are a tax. Use SF Symbols at 17pt for nav, 22pt for headers, 28pt for in-race controls. Weight: <b>medium</b>. Filled variant only for active tab state.</p></div>
+    <div class="spec"><h4>Station glyphs</h4><p>16 HYROX stations need real glyphs — these are content, not chrome. Commission a custom set: outlined, 2pt stroke, monoline, 64×64 art-board. <b>This is the one place we hand-draw.</b></p></div>
+    <div class="spec"><h4>No illustrations</h4><p>No empty-state characters. No mascots. Empty states are typographic with a single SF Symbol glyph at 56pt, 30% opacity. Strava-quiet.</p></div>
+    <div class="spec"><h4>No gradients</h4><p>One exception: a single coral radial glow behind the "READY TO RACE" title and the predicted-finish PB callout. Otherwise flat.</p></div>
+  </div>
+
+  <h2 class="section"><span>Voice on copy</span><span class="num">00.7</span></h2>
+  <p class="lede">Short. Honest. Observational. The product noticed something — it doesn't congratulate you for showing up.</p>
+  <div class="row-grid tight">
+    <div class="box" style="max-width: 360px;"><div class="caps" style="color: #2BC758;">Trakrr voice</div><div style="font-family: -apple-system, 'SF Pro Rounded'; font-weight: 700; font-size: 18px; margin: 6px 0;">"Run 7 was where you lost it."</div><div class="annot tiny muted">Names the moment. No softening. No cheerleader.</div></div>
+    <div class="box" style="max-width: 360px;"><div class="caps" style="color: #FF3B30;">Not Trakrr</div><div style="font-family: -apple-system, 'SF Pro Rounded'; font-weight: 700; font-size: 18px; margin: 6px 0; color: var(--ink-3); text-decoration: line-through;">"Amazing effort! You crushed it 💪"</div><div class="annot tiny muted">Hollow. Bro-y. Reads like a fitness app from 2019.</div></div>
+  </div>
+
+  <h2 class="section"><span>The system in one paragraph</span><span class="num">00.8</span></h2>
+  <p style="font-family: var(--hand); font-size: 26px; line-height: 1.3; max-width: 920px; color: var(--ink);">
+    Dark by default. SF Pro Rounded for the clock and nothing else. Coral only where a brand moment lives — a PB, a "ready to race," the primary button. Cards earn their place; race screens are typographic cathedrals. Motion is one spring, plus a hard takeover for alerts, plus an ambient pulse. Voice says what it noticed and stops.
+  </p>
+
+  <div style="margin-top: 64px; padding-top: 24px; border-top: 2px dashed var(--rule-soft); font-family: var(--pen); color: var(--ink-2); font-size: 13px;">
+    Tabs to the right walk through every surface. Start with <b>12 App Map</b> for the bird's eye, or jump to <b>03 Race</b> for the most-thought-about surface.
+  </div>
+</div>
+</body>
+</html>

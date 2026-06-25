@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>11 — Motion</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .spec { background: var(--cream-2); border: 2px solid var(--ink); border-radius: 14px; padding: 18px; font-family: var(--ui); font-size: 12px; color: var(--ink); line-height: 1.5; }
+  .spec h4 { font-family: var(--display); font-weight: 800; font-size: 16px; margin: 0 0 8px; letter-spacing: -.01em; }
+  .spec .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; font-family: "JetBrains Mono", monospace; font-size: 10px; }
+  .spec .meta span { background: var(--ink); color: var(--cream); padding: 3px 7px; border-radius: 4px; }
+  .spec .meta span.coral { background: var(--coral); }
+  .spec .meta span.green { background: var(--green); }
+  .demo { background: #0f0f12; border-radius: 12px; height: 120px; display: flex; align-items: center; justify-content: center; margin-top: 12px; overflow: hidden; position: relative; color: #fff; font-family: -apple-system, "SF Pro Rounded"; cursor: pointer; }
+  .demo:hover .replay { opacity: 1; }
+  .replay { position: absolute; top: 6px; right: 8px; font-family: var(--script); font-size: 12px; color: rgba(255,255,255,.4); opacity: 0; transition: .2s; }
+  .grid-motion { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 12px; }
+
+  /* Demo animations */
+  @keyframes pbBurst { 0%{transform:scale(.3);opacity:0} 60%{transform:scale(1.08);opacity:1} 100%{transform:scale(1);opacity:1} }
+  @keyframes pbRotateIn { 0%{transform:scale(.3) rotate(-15deg);opacity:0} 60%{transform:scale(1.08) rotate(2deg);opacity:1} 100%{transform:scale(1) rotate(0);opacity:1} }
+  @keyframes ghostPulse { 0%,100%{opacity:.4;transform:scaleX(1)} 50%{opacity:.9;transform:scaleX(1.04)} }
+  @keyframes cueSlam { 0%{transform:scale(2);opacity:0} 30%{transform:scale(.95);opacity:1} 100%{transform:scale(1);opacity:1} }
+  @keyframes countdown { 0%{transform:scale(1.5);opacity:0} 30%{transform:scale(1);opacity:1} 70%{transform:scale(1);opacity:1} 100%{transform:scale(.7);opacity:0} }
+  @keyframes haptic { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-2px)} 75%{transform:translateX(2px)} }
+  @keyframes shimmer { 0%{background-position:-200px 0} 100%{background-position:200px 0} }
+  @keyframes drawerUp { 0%{transform:translateY(100%)} 100%{transform:translateY(0)} }
+  @keyframes ringFill { 0%{stroke-dashoffset:283} 100%{stroke-dashoffset:71} }
+  @keyframes counter { 0%{content:"1:19:24"} 100%{content:"1:18:42"} }
+
+  .pb-medal { width: 60px; height: 60px; border-radius: 50%; background: var(--coral); display:flex; align-items:center; justify-content:center; color:#fff; font-family: var(--display); font-weight: 900; font-size: 14px; animation: pbRotateIn 0.6s cubic-bezier(.34,1.56,.64,1) infinite; animation-delay: 0s; animation-iteration-count: infinite; }
+  .ghost-bar { width: 200px; height: 6px; background: rgba(255,255,255,.15); border-radius: 3px; position: relative; overflow: hidden; }
+  .ghost-bar::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 65%; background: var(--green); border-radius: 3px; animation: ghostPulse 1.6s infinite ease-in-out; transform-origin: left; }
+  .cue-slam { font-family: -apple-system, "SF Pro Rounded"; font-weight: 900; font-size: 32px; color: var(--coral); animation: cueSlam .35s cubic-bezier(.34,1.56,.64,1) infinite; animation-iteration-count: infinite; animation-delay: 0s; }
+  .countdown-3 { font-family: -apple-system, "SF Pro Rounded"; font-weight: 900; font-size: 60px; color: var(--coral); animation: countdown 1s infinite; }
+  .haptic-card { width: 80px; height: 80px; background: var(--ink); border-radius: 10px; animation: haptic .12s infinite; }
+  .shimmer-bar { width: 200px; height: 14px; border-radius: 4px; background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.2), rgba(255,255,255,.08)); background-size: 400px 100%; animation: shimmer 1.4s infinite; }
+  .drawer-ex { width: 160px; height: 80px; background: var(--ink); border-radius: 12px 12px 0 0; animation: drawerUp .42s cubic-bezier(.32,.72,0,1) infinite; align-self: flex-end; margin-top: auto; }
+  .ring-svg circle.fg { stroke: var(--coral); stroke-dasharray: 283; animation: ringFill 1.4s cubic-bezier(.65,0,.35,1) infinite; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">11 · Reference</div>
+    <h1>Motion specs</h1>
+    <p>Motion has a job. We use it to <strong>celebrate</strong> (PB), <strong>signal urgency</strong> (REDLINE), <strong>orient</strong> (sheet enter/exit), and <strong>reward effort</strong> (counter rolls into a new time). Never decoration. Hover each tile to replay.</p>
+  </header>
+
+  <h2 class="section"><span>Curves · the only 4 you'll need</span><span class="num">11.1</span></h2>
+  <div class="grid-motion">
+    <div class="spec">
+      <h4>Standard · ui</h4>
+      <div>Sheet enter, tab switch, secondary state change. Apple's standard ease — quick start, soft land.</div>
+      <div class="meta"><span>cubic-bezier(.32, .72, 0, 1)</span><span>240ms</span></div>
+    </div>
+    <div class="spec">
+      <h4>Spring · celebrate</h4>
+      <div>PB badge, finish stamp, follow confirmation. Overshoot ~8% — feels like a small victory.</div>
+      <div class="meta"><span>cubic-bezier(.34, 1.56, .64, 1)</span><span>420–600ms</span></div>
+    </div>
+    <div class="spec">
+      <h4>Slam · urgent</h4>
+      <div>REDLINE alert, station-done confirmation. Starts at 2x scale, snaps in fast — your eye can't miss it.</div>
+      <div class="meta"><span>cubic-bezier(.6, 0, .8, .4)</span><span>180–280ms</span></div>
+    </div>
+    <div class="spec">
+      <h4>Linear · numbers</h4>
+      <div>Counter rolls, stopwatch ticks, scrubber. Anything time-coded uses pure linear — no easing on truth.</div>
+      <div class="meta"><span>linear</span><span>matches data rate</span></div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Signature moments</span><span class="num">11.2</span></h2>
+  <div class="grid-motion">
+
+    <div class="spec">
+      <h4>PB stamp drop</h4>
+      <div>When the user lands a new PB. Badge falls from above, overshoots, settles with a 2° rotation.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div class="pb-medal">PB</div></div>
+      <div class="meta"><span class="coral">spring</span><span>scale .3→1.08→1</span><span>rotate −15°→2°→0</span><span>600ms</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Pace ghost pulse</h4>
+      <div>While racing, the ghost bar pulses with the heartbeat-tempo. Confirms tracking is live.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div class="ghost-bar"></div></div>
+      <div class="meta"><span class="green">ease-in-out</span><span>opacity .4↔.9</span><span>1600ms loop</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Coaching cue slam</h4>
+      <div>REDLINE / SLOW / HOLD. Drops in from 2x scale with a haptic. Holds 1.2s, fades.</div>
+      <div class="demo" style="background:#1a0500;"><span class="replay">replay ↻</span><div class="cue-slam">REDLINE</div></div>
+      <div class="meta"><span class="coral">slam</span><span>scale 2→.95→1</span><span>280ms in · 1200ms hold</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Race countdown · 3 · 2 · 1</h4>
+      <div>Each digit pops from 1.5x, holds, shrinks out. Watch haptic on each beat.</div>
+      <div class="demo" style="background:#1a0500;"><span class="replay">replay ↻</span><div class="countdown-3">3</div></div>
+      <div class="meta"><span class="coral">spring</span><span>1000ms per digit</span><span>haptic .heavy</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Bottom sheet</h4>
+      <div>Sheets enter from below with standard curve. Backdrop fades from 0 to .5 in parallel.</div>
+      <div class="demo" style="align-items:flex-end;padding-bottom:0;background:rgba(15,15,18,.7);"><span class="replay">replay ↻</span><div class="drawer-ex"></div></div>
+      <div class="meta"><span>standard</span><span>translateY 100→0</span><span>420ms</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Skeleton shimmer</h4>
+      <div>Lists shimmer while loading. Never spinners — those feel broken; shimmer feels alive.</div>
+      <div class="demo" style="background:#0f0f12;flex-direction:column;gap:8px;"><span class="replay">replay ↻</span><div class="shimmer-bar"></div><div class="shimmer-bar" style="width:140px;"></div></div>
+      <div class="meta"><span>linear</span><span>1400ms loop</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Number roll · counter</h4>
+      <div>Time totals roll digit-by-digit when a new PB lands. Each digit slides 100% upward.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:34px;color:#fff;font-feature-settings:'tnum';"><span style="display:inline-block;animation:counter 1.4s steps(20) infinite;">1:18:42</span></div></div>
+      <div class="meta"><span>steps(20)</span><span>1400ms</span><span class="green">on PB only</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Watch haptic preview</h4>
+      <div>Visual representation of the haptic pattern. Each cue has a fingerprint you learn over weeks.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div class="haptic-card"></div></div>
+      <div class="meta"><span>HOLD: ··</span><span>SLOW: —</span><span>REDLINE: ●●●</span><span>PUSH: ↑↑↑</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Ring fill · countdown</h4>
+      <div>Days-to-race complication. Ring fills as race day approaches, slow and inevitable.</div>
+      <div class="demo">
+        <span class="replay">replay ↻</span>
+        <svg class="ring-svg" width="80" height="80" style="transform:rotate(-90deg);"><circle cx="40" cy="40" r="36" fill="none" stroke="#222" stroke-width="6"/><circle cx="40" cy="40" r="36" class="fg" fill="none" stroke-width="6" stroke-linecap="round"/></svg>
+      </div>
+      <div class="meta"><span>cubic-bezier(.65,0,.35,1)</span><span>1400ms on enter</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Tab transition</h4>
+      <div>Tab bar switches with a 4px slide + opacity crossfade. Never a hard cut — disorients.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div style="font-family:var(--ui);font-weight:700;font-size:14px;color:#fff;">Feed → Race</div></div>
+      <div class="meta"><span>standard</span><span>180ms · 4px slide</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Follow tap</h4>
+      <div>Coral button scales to .94 on press, springs back. Checkmark crossfades over "Follow" label.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div style="background:var(--coral);color:#fff;border-radius:14px;padding:10px 24px;font-family:var(--ui);font-weight:800;font-size:13px;">Follow</div></div>
+      <div class="meta"><span class="coral">spring</span><span>scale .94→1</span><span>haptic .light</span></div>
+    </div>
+
+    <div class="spec">
+      <h4>Pull to refresh</h4>
+      <div>Feed pull triggers stretch resistance, ring rotates, snap-back on release. No spinner.</div>
+      <div class="demo"><span class="replay">replay ↻</span><div style="font-family:var(--script);font-size:18px;color:rgba(255,255,255,.6);">↓ pull ·  ↺ release ·  ✓ done</div></div>
+      <div class="meta"><span>rubber-band</span><span>haptic .light on threshold</span></div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>What we don't animate</span><span class="num">11.3</span></h2>
+  <div class="grid-motion">
+    <div class="spec"><h4>Race numbers, mid-race</h4>The pace, HR, and clock during a race are <strong>plain text</strong>. No tween, no ease. Reading at 180bpm needs the number to be still — motion is noise. <div class="meta"><span>no transition</span></div></div>
+    <div class="spec"><h4>Settings toggles</h4>iOS handles these. Don't reinvent. <div class="meta"><span>system default</span></div></div>
+    <div class="spec"><h4>Empty states</h4>Quiet. The void is intentional. Don't fill it with friendly motion. <div class="meta"><span>static</span></div></div>
+    <div class="spec"><h4>Errors</h4>Snap in, hold, dismissed by user. No fade. We want them seen. <div class="meta"><span>no exit</span></div></div>
+  </div>
+</div>
+</body>
+</html>

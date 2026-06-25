@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>05 — Profile flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+<style>
+  .race-num { font-family: -apple-system, "SF Pro Rounded"; font-weight: 800; font-feature-settings: "tnum"; letter-spacing: -.02em; color: #fff; }
+  .race-num.lg { font-size: 26px; line-height: 1; }
+  .race-num.md { font-size: 16px; line-height: 1; }
+  .caps-w { font-family: var(--ui); font-weight: 700; font-size: 9px; letter-spacing: .14em; color: var(--text-night-3); text-transform: uppercase; }
+  .tile { background: var(--night-2); border-radius: 10px; padding: 10px; }
+  .tile.hero { border: 1.5px solid var(--coral); background: rgba(255,69,48,.08); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">05 · Flow</div>
+    <h1>Profile (your own)</h1>
+    <p>What <i>you</i> see when you tap Profile. The screenshot today has the right shape — header, stat row, "Next Up," recent activity — but every block is undercooked. Below: the proposed hero, the asymmetric stat row, the "Next Up" card with reasoning, and the trends rail.</p>
+  </header>
+
+  <h2 class="section"><span>Profile · main</span><span class="num">05.1</span></h2>
+
+  <div class="row-grid">
+    <!-- HERO + STATS -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">Profile</div><div style="display:flex;gap:10px;color:#fff;font-size:14px;">🔍 ⚙</div></div>
+
+        <div style="text-align:center;margin-top:14px;">
+          <div class="av lg" style="margin:0 auto;border-color:var(--coral);box-shadow:0 0 0 4px rgba(255,69,48,.18);background:var(--night-3);color:#fff;">U</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:18px;color:#fff;margin-top:8px;line-height:1;">Umang</div>
+          <div style="font-size:10px;color:var(--text-night-3);margin-top:2px;">@umanggrg</div>
+          <div style="margin-top:6px;"><span style="background:var(--coral);color:#fff;font-family:var(--ui);font-weight:800;font-size:9px;padding:3px 8px;border-radius:6px;letter-spacing:.08em;">MEN'S OPEN</span></div>
+          <div style="font-size:10px;color:var(--text-night-2);margin-top:6px;"><b style="color:#fff;">0</b> followers · <b style="color:#fff;">0</b> following</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;margin-top:14px;">
+          <div class="tile hero"><div class="race-num" style="font-size:22px;color:var(--coral);">00:14</div><div class="caps-w" style="color:var(--coral);">PB STATION</div><div style="font-size:9px;color:var(--text-night-3);margin-top:2px;">Ski Erg · best</div></div>
+          <div class="tile"><div class="race-num md">5</div><div class="caps-w" style="margin-top:2px;">RACES</div></div>
+          <div class="tile"><div class="race-num md">25:22</div><div class="caps-w" style="margin-top:2px;">AVG</div></div>
+          <div class="tile"><div class="race-num md">0 🔥</div><div class="caps-w" style="margin-top:2px;">STREAK</div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">NEXT UP</div>
+        <div class="tile" style="margin-top:4px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;"><div><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:14px;color:#fff;">Sled Pull ladder</div><div style="font-size:10px;color:var(--text-night-2);margin-top:2px;">Your Sled Pull was +18s vs avg last race.</div></div><div style="font-size:10px;color:var(--coral);font-family:var(--ui);font-weight:800;">→</div></div>
+          <div style="display:flex;gap:6px;margin-top:8px;"><span class="chip" style="color:var(--coral);border-color:var(--coral);font-size:9px;">12 min</span><span class="chip" style="color:var(--text-night-2);border-color:var(--night-rule);font-size:9px;">3 sets</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">RECENT</div>
+        <div class="stack g6" style="margin-top:4px;">
+          <div class="tile" style="display:flex;gap:10px;align-items:center;"><div style="width:36px;height:36px;border-radius:6px;background:var(--coral);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--ui);font-weight:800;font-size:10px;">11/9</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Sunday HYROX sim</div><div style="font-size:9px;color:var(--green);font-weight:700;">−42s PB</div></div><div class="race-num md">1:18:42</div></div>
+          <div class="tile" style="display:flex;gap:10px;align-items:center;"><div style="width:36px;height:36px;border-radius:6px;background:var(--night-3);display:flex;align-items:center;justify-content:center;color:var(--text-night-2);font-family:var(--ui);font-weight:800;font-size:10px;">11/5</div><div class="stack grow"><div style="font-size:11px;color:#fff;font-weight:700;">Sled Pull ladder</div><div style="font-size:9px;color:var(--text-night-3);">custom</div></div><div class="race-num md">8:42</div></div>
+        </div>
+        <div class="tabbar"><div class="item"><div class="ic"></div>Feed</div><div class="item"><div class="ic"></div>History</div><div class="item" style="color:var(--coral);"><div class="ic" style="border-color:var(--coral);background:var(--coral);"></div></div><div class="item active"><div class="ic"></div>Profile</div><div class="item"><div class="ic"></div>Watch</div></div>
+      </div>
+      <div class="label"><strong>Profile · main</strong>hero · tiles · Next Up · recent</div>
+    </div>
+
+    <!-- EMPTY (no races) -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">Profile</div><div style="display:flex;gap:10px;color:#fff;font-size:14px;">🔍 ⚙</div></div>
+
+        <div style="text-align:center;margin-top:14px;">
+          <div class="av lg" style="margin:0 auto;border-color:var(--coral);background:var(--night-3);color:#fff;">U</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:18px;color:#fff;margin-top:8px;line-height:1;">Umang</div>
+          <div style="font-size:10px;color:var(--text-night-3);margin-top:2px;">@umanggrg</div>
+          <div style="margin-top:6px;"><span style="background:var(--coral);color:#fff;font-family:var(--ui);font-weight:800;font-size:9px;padding:3px 8px;border-radius:6px;letter-spacing:.08em;">MEN'S OPEN</span></div>
+        </div>
+
+        <div style="margin-top:24px;text-align:center;padding:24px 12px;border:1.5px dashed var(--night-rule);border-radius:14px;">
+          <div style="font-size:36px;opacity:.2;color:#fff;">⚑</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:16px;color:#fff;margin-top:6px;">No races yet.</div>
+          <div style="font-size:10px;color:var(--text-night-2);margin-top:4px;max-width:200px;margin-inline:auto;">Your first finish lives here forever. Start with a sim.</div>
+          <div style="background:var(--coral);color:#fff;border-radius:14px;padding:10px 18px;font-family:var(--ui);font-weight:800;font-size:11px;display:inline-block;margin-top:12px;">Start your first race →</div>
+        </div>
+
+        <div class="caps-w" style="margin-top:18px;">SUGGESTED FIRST WORKOUT</div>
+        <div class="tile" style="margin-top:4px;">
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">2-station sim · 20 min</div>
+          <div style="font-size:10px;color:var(--text-night-2);margin-top:2px;">Ski + Burpee. A taste of HYROX without a full race.</div>
+        </div>
+        <div class="tabbar"><div class="item"><div class="ic"></div>Feed</div><div class="item"><div class="ic"></div>History</div><div class="item" style="color:var(--coral);"><div class="ic" style="border-color:var(--coral);background:var(--coral);"></div></div><div class="item active"><div class="ic"></div>Profile</div><div class="item"><div class="ic"></div>Watch</div></div>
+      </div>
+      <div class="label"><strong>Profile · empty</strong>day-0, no races</div>
+    </div>
+
+    <!-- POWER USER (many races) -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="font-family:var(--ui);font-weight:900;font-size:22px;color:#fff;">Profile</div><div style="display:flex;gap:10px;color:#fff;font-size:14px;">🔍 ⚙</div></div>
+
+        <div style="text-align:center;margin-top:14px;">
+          <div class="av lg" style="margin:0 auto;border-color:var(--coral);background:var(--night-3);color:#fff;">SC</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:18px;color:#fff;margin-top:8px;line-height:1;">Sarah Chen</div>
+          <div style="font-size:10px;color:var(--text-night-3);margin-top:2px;">@sarahc</div>
+          <div style="margin-top:6px;"><span style="background:var(--coral);color:#fff;font-family:var(--ui);font-weight:800;font-size:9px;padding:3px 8px;border-radius:6px;letter-spacing:.08em;">WOMEN'S OPEN</span></div>
+          <div style="font-size:10px;color:var(--text-night-2);margin-top:6px;"><b style="color:#fff;">214</b> followers · <b style="color:#fff;">86</b> following</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;margin-top:14px;">
+          <div class="tile hero"><div class="race-num" style="font-size:18px;color:var(--coral);">1:18:42</div><div class="caps-w" style="color:var(--coral);">PB · FULL</div><div style="font-size:9px;color:var(--text-night-3);margin-top:2px;">Nov 9 · −42s</div></div>
+          <div class="tile"><div class="race-num md">47</div><div class="caps-w" style="margin-top:2px;">RACES</div></div>
+          <div class="tile"><div class="race-num md">1:22:08</div><div class="caps-w" style="margin-top:2px;">AVG</div></div>
+          <div class="tile"><div class="race-num md">12 🔥</div><div class="caps-w" style="margin-top:2px;">STREAK</div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">NEXT UP</div>
+        <div class="tile" style="margin-top:4px;border:1px solid var(--coral);background:rgba(255,69,48,.06);">
+          <div style="display:flex;justify-content:space-between;"><div><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Vegas HYROX · Dec 7</div><div style="font-size:10px;color:var(--text-night-2);margin-top:2px;">23 days · 3 sims to taper</div></div></div>
+          <div style="width:100%;height:4px;background:var(--night-rule);border-radius:2px;margin-top:8px;overflow:hidden;"><div style="width:72%;height:100%;background:var(--coral);"></div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">TRENDS · 6 RACES</div>
+        <div class="tile" style="margin-top:4px;padding:8px 10px;">
+          <svg viewBox="0 0 200 36" preserveAspectRatio="none" style="width:100%;height:36px;"><polyline points="0,8 30,12 60,18 100,14 140,22 170,26 200,30" fill="none" stroke="#FF3B30" stroke-width="2"/></svg>
+          <div style="font-size:10px;color:var(--green);font-family:var(--ui);font-weight:700;margin-top:2px;">−6 min over last 90 days</div>
+        </div>
+        <div class="tabbar"><div class="item"><div class="ic"></div>Feed</div><div class="item"><div class="ic"></div>History</div><div class="item" style="color:var(--coral);"><div class="ic" style="border-color:var(--coral);background:var(--coral);"></div></div><div class="item active"><div class="ic"></div>Profile</div><div class="item"><div class="ic"></div>Watch</div></div>
+      </div>
+      <div class="label"><strong>Profile · veteran</strong>47 races, racing Vegas</div>
+    </div>
+  </div>
+
+  <h2 class="section"><span>Edit profile · the form</span><span class="num">05.2</span></h2>
+
+  <div class="row-grid">
+    <!-- EDIT PROFILE -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">×</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:#fff;">Edit profile</div><div style="color:var(--coral);font-size:11px;font-weight:700;">Save</div></div>
+
+        <div style="text-align:center;margin-top:18px;"><div class="av lg" style="margin:0 auto;background:var(--night-3);color:#fff;border-color:var(--coral);">U</div><div style="font-family:var(--ui);font-size:11px;color:var(--coral);font-weight:700;margin-top:6px;">Change photo</div></div>
+
+        <div class="stack g8" style="margin-top:16px;">
+          <div><div class="caps-w">DISPLAY NAME</div><div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:3px;font-size:13px;color:#fff;">Umang</div></div>
+          <div><div class="caps-w">HANDLE</div><div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:3px;font-size:13px;color:#fff;">@umanggrg</div></div>
+          <div><div class="caps-w">BIO</div><div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:3px;font-size:12px;color:var(--text-night-2);min-height:48px;">Add a one-liner. Gym · goals · race location.</div></div>
+          <div><div class="caps-w">DIVISION</div><div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:3px;font-size:13px;color:#fff;display:flex;justify-content:space-between;"><span>Men's Open</span><span style="color:var(--text-night-3);">›</span></div></div>
+          <div><div class="caps-w">HOME GYM</div><div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:3px;font-size:13px;color:var(--text-night-2);display:flex;justify-content:space-between;"><span>Add a gym</span><span style="color:var(--text-night-3);">›</span></div></div>
+        </div>
+      </div>
+      <div class="label"><strong>Edit profile</strong>name · bio · division · gym</div>
+    </div>
+
+    <!-- DIVISION PICKER -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:#fff;">Division</div><div></div></div>
+        <div style="font-size:10px;color:var(--text-night-2);margin-top:8px;max-width:240px;">Pick the division you'd race in. We use this for leaderboards and benchmarks.</div>
+
+        <div class="stack g4" style="margin-top:14px;">
+          <div class="tile" style="display:flex;justify-content:space-between;align-items:center;border:1.5px solid var(--coral);background:rgba(255,69,48,.06);"><div><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Men's Open</div><div style="font-size:10px;color:var(--text-night-2);">18–39 · full weights</div></div><div style="color:var(--coral);font-size:14px;">✓</div></div>
+          <div class="tile"><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Women's Open</div><div style="font-size:10px;color:var(--text-night-2);">18–39 · full weights</div></div>
+          <div class="tile"><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Men's Age Group</div><div style="font-size:10px;color:var(--text-night-2);">40+ · scaled options</div></div>
+          <div class="tile"><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Women's Age Group</div><div style="font-size:10px;color:var(--text-night-2);">40+ · scaled options</div></div>
+          <div class="tile"><div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:13px;color:#fff;">Adaptive / Open</div><div style="font-size:10px;color:var(--text-night-2);">all athletes · configurable</div></div>
+        </div>
+      </div>
+      <div class="label"><strong>Division picker</strong>5 standard options</div>
+    </div>
+
+    <!-- ACHIEVEMENTS / STATS DEEP -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">9:41</span><span class="r"><span class="bar"></span></span></div>
+      <div class="screen" style="padding-top:8px;">
+        <div class="row-f between"><div style="color:#fff;font-size:16px;">←</div><div style="font-family:var(--ui);font-weight:700;font-size:11px;color:#fff;">All stats</div><div></div></div>
+
+        <div class="caps-w" style="margin-top:14px;">FINISH TIMES</div>
+        <div style="background:var(--night-2);border-radius:10px;padding:10px;margin-top:4px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div><div style="font-size:9px;color:var(--text-night-3);">BEST</div><div class="race-num md" style="color:var(--coral);">1:18:42</div></div>
+          <div><div style="font-size:9px;color:var(--text-night-3);">AVG</div><div class="race-num md">1:22:08</div></div>
+          <div><div style="font-size:9px;color:var(--text-night-3);">RACES</div><div class="race-num md">47</div></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:14px;">STATION PBs</div>
+        <div class="stack g4" style="margin-top:4px;font-family:var(--ui);font-size:11px;">
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Ski Erg</span><span class="mono" style="color:var(--coral);font-weight:700;">3:42</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Sled Push</span><span class="mono" style="color:var(--coral);font-weight:700;">1:54</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Sled Pull</span><span class="mono" style="color:var(--coral);font-weight:700;">3:32</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Burpee Broad Jumps</span><span class="mono" style="color:var(--coral);font-weight:700;">2:48</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Rowing</span><span class="mono" style="color:var(--coral);font-weight:700;">3:58</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Farmer's Carry</span><span class="mono" style="color:var(--coral);font-weight:700;">1:42</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Sandbag Lunges</span><span class="mono" style="color:var(--coral);font-weight:700;">3:18</span></div>
+          <div class="row-f between" style="background:var(--night-2);border-radius:8px;padding:8px 10px;color:#fff;"><span>Wall Balls</span><span class="mono" style="color:var(--coral);font-weight:700;">4:02</span></div>
+        </div>
+
+        <div class="caps-w" style="margin-top:12px;">MILESTONES</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;">
+          <span class="chip" style="color:var(--coral);border-color:var(--coral);background:rgba(255,69,48,.06);font-size:9px;">⚡ Sub-1:20</span>
+          <span class="chip" style="color:var(--green);border-color:var(--green);font-size:9px;">🔥 12 race streak</span>
+          <span class="chip" style="color:var(--text-night-2);border-color:var(--night-rule);font-size:9px;">50 wall balls</span>
+        </div>
+      </div>
+      <div class="label"><strong>All stats</strong>per-station PBs + milestones</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

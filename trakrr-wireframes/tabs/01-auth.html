@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>01 — Auth & onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/sketch.css">
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="crumb">01 · Flow</div>
+    <h1>Auth & onboarding</h1>
+    <p>5 screens, ~25 seconds end-to-end. We use Sign in with Apple so there are no passwords, no email confirmations, no "verify your account" purgatory. The goal is: tap → tap → race in &lt; 30 sec.</p>
+  </header>
+
+  <h3 class="row">Splash → Sign in <span class="tag">01.1 · light + dark</span></h3>
+  <p class="desc">The only place the wordmark gets the full stage. Coral triangle = brand mark, mountain-up means earned. Sub-line "Race · Track · Compete" tells you what you're here for in 4 words.</p>
+
+  <div class="row-grid">
+    <!-- LIGHT SPLASH -->
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div style="flex:1"></div>
+        <div style="text-align:center;">
+          <div style="width:60px;height:54px;background:var(--coral);clip-path:polygon(50% 8%,100% 92%,0 92%);margin:0 auto 14px;"></div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:32px;letter-spacing:.04em;">TRAKRR</div>
+          <div style="font-family:var(--pen);font-size:13px;color:var(--ink-3);margin-top:6px;">Race · Track · Compete</div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="btn huge" style="background:#000;color:#fff;border-color:#000;margin-bottom:8px;">  Sign in with Apple</div>
+        <div style="text-align:center;font-family:var(--pen);font-size:10px;color:var(--ink-3);line-height:1.4;padding:0 12px 8px;">Sign in privately with your Apple ID. We never see your password.</div>
+      </div>
+      <div class="label"><strong>01.1a</strong>splash · light</div>
+    </div>
+
+    <!-- DARK SPLASH -->
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div style="flex:1"></div>
+        <div style="text-align:center;">
+          <div style="width:60px;height:54px;background:var(--coral);clip-path:polygon(50% 8%,100% 92%,0 92%);margin:0 auto 14px;box-shadow:0 0 30px rgba(255,69,48,.4);"></div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:32px;letter-spacing:.04em;color:#fff;">TRAKRR</div>
+          <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-3);margin-top:6px;">Race · Track · Compete</div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="btn huge" style="background:#fff;color:#000;border-color:#fff;margin-bottom:8px;">  Sign in with Apple</div>
+        <div style="text-align:center;font-family:var(--pen);font-size:10px;color:var(--text-night-3);line-height:1.4;padding:0 12px 8px;">Sign in privately with your Apple ID. We never see your password.</div>
+      </div>
+      <div class="label"><strong>01.1b</strong>splash · dark · brand home</div>
+    </div>
+
+    <div class="notes" style="max-width: 320px;">
+      <h4>What changed from today</h4>
+      <ol>
+        <li><span class="num">1</span><b>Light splash kept</b> — first-touch warmth. Apple's app review team also defaults to light.</li>
+        <li><span class="num">2</span><b>Dark splash added</b> for users with System=Dark — the coral mark gets a soft glow because the brand lives at night.</li>
+        <li><span class="num">3</span><b>Triangle stays</b> — it reads as "up," not "play." Don't change it.</li>
+        <li><span class="num">4</span>One CTA. Apple ID only. We can add Google later if we must — for now, friction stays low.</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="row">Create handle + division <span class="tag">01.3 · post-Apple-sheet</span></h3>
+  <p class="desc">After the OS sheet resolves we know the user's first name (Apple gives it to us) but not their HYROX division. One screen, two inputs, one button.</p>
+
+  <div class="row-grid">
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div class="caps" style="margin: 10px 0 2px;">Step 1 of 3</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:30px;line-height:1.05;color:#fff;">Pick a handle.</div>
+        <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-2);margin: 6px 0 18px;">This is how other athletes find you.</div>
+
+        <div class="box" style="border-color:var(--coral); padding: 14px;">
+          <div class="caps coral-text">Handle</div>
+          <div style="display:flex;align-items:baseline;gap:2px;margin-top:4px;">
+            <span style="color:var(--text-night-2);font-size:18px;font-family:-apple-system,'SF Pro Rounded';font-weight:700;">@</span>
+            <span style="color:#fff;font-size:18px;font-family:-apple-system,'SF Pro Rounded';font-weight:700;">umanggrg</span>
+            <span style="margin-left:auto;color:var(--green);font-size:11px;">✓ available</span>
+          </div>
+        </div>
+
+        <div class="box" style="margin-top: 12px; padding: 14px;">
+          <div class="caps">Division</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+            <span style="color:#fff;font-size:16px;font-family:-apple-system,'SF Pro Rounded';font-weight:700;">Men's Open</span>
+            <span class="muted" style="font-size:14px;">⌄</span>
+          </div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div class="btn primary huge">Continue</div>
+        <div style="height:48px"></div>
+      </div>
+      <div class="label"><strong>01.3</strong>handle + division</div>
+    </div>
+
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div class="caps" style="margin: 10px 0 2px;">Step 2 of 3</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:30px;line-height:1.05;color:#fff;">We'll need a few things.</div>
+        <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-2);margin: 6px 0 18px;">Each does one job. Skip any you don't want.</div>
+
+        <div class="box" style="margin-bottom:10px; padding: 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="color:#fff;font-weight:700;font-size:14px;">Health</div>
+              <div class="muted" style="font-size:11px;">HR, workouts</div>
+            </div>
+            <span class="chip coral">Allow</span>
+          </div>
+        </div>
+        <div class="box" style="margin-bottom:10px; padding: 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="color:#fff;font-weight:700;font-size:14px;">Notifications</div>
+              <div class="muted" style="font-size:11px;">Cues, follows</div>
+            </div>
+            <span class="chip coral">Allow</span>
+          </div>
+        </div>
+        <div class="box" style="margin-bottom:10px; padding: 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="color:#fff;font-weight:700;font-size:14px;">Location</div>
+              <div class="muted" style="font-size:11px;">For outdoor runs only</div>
+            </div>
+            <span class="chip">Allow</span>
+          </div>
+        </div>
+        <div class="box" style="padding: 12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <div>
+              <div style="color:#fff;font-weight:700;font-size:14px;">Motion</div>
+              <div class="muted" style="font-size:11px;">Cadence, splits</div>
+            </div>
+            <span class="chip">Allow</span>
+          </div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div class="btn primary huge">Continue</div>
+        <div style="height:48px"></div>
+      </div>
+      <div class="label"><strong>01.4</strong>permissions · one screen</div>
+    </div>
+
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div class="caps" style="margin: 10px 0 2px;">Step 3 of 3</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:30px;line-height:1.05;color:#fff;">Welcome, Umang.</div>
+        <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-2);margin: 6px 0 18px;">Pick a starting point. You can change later.</div>
+
+        <div class="box coral" style="padding: 16px; margin-bottom: 10px;">
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:18px;color:var(--coral);">Race tomorrow →</div>
+          <div class="muted" style="font-size:12px;margin-top:3px;">Anchor your week to an upcoming HYROX event.</div>
+        </div>
+        <div class="box" style="padding: 16px; margin-bottom: 10px;">
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:18px;color:#fff;">Train for one →</div>
+          <div class="muted" style="font-size:12px;margin-top:3px;">Build toward a race months out.</div>
+        </div>
+        <div class="box" style="padding: 16px;">
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:18px;color:#fff;">Just exploring →</div>
+          <div class="muted" style="font-size:12px;margin-top:3px;">Drop me straight into the app.</div>
+        </div>
+
+        <div style="flex:1"></div>
+        <div class="btn huge" style="background:transparent;color:var(--text-night-2);border-color:var(--text-night-3);">Skip</div>
+        <div style="height:48px"></div>
+      </div>
+      <div class="label"><strong>01.5</strong>welcome · pick a starting point</div>
+    </div>
+  </div>
+
+  <h3 class="row">Edge states <span class="tag">handle taken · offline · sign-in cancelled</span></h3>
+  <div class="row-grid">
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>···</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div class="caps" style="margin: 10px 0 2px;">Step 1 of 3</div>
+        <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:900;font-size:30px;color:#fff;">Pick a handle.</div>
+        <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-2);margin: 6px 0 18px;">This is how other athletes find you.</div>
+        <div class="box" style="border-color:var(--coral); padding: 14px;">
+          <div class="caps coral-text">Handle</div>
+          <div style="display:flex;align-items:baseline;gap:2px;margin-top:4px;">
+            <span style="color:var(--text-night-2);font-size:18px;font-weight:700;">@</span>
+            <span style="color:#fff;font-size:18px;font-weight:700;">sarah</span>
+            <span style="margin-left:auto;color:var(--coral);font-size:11px;">taken</span>
+          </div>
+        </div>
+        <div class="caps" style="margin: 10px 0 6px; color: var(--text-night-2);">Try one of these</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="chip">@sarah_runs</span>
+          <span class="chip">@sarahc</span>
+          <span class="chip">@sarah_hyrox</span>
+          <span class="chip">@s_chen</span>
+        </div>
+        <div style="flex:1"></div>
+        <div class="btn huge" style="opacity:.4;">Continue</div>
+        <div style="height:48px"></div>
+      </div>
+      <div class="label"><strong>01.3-err</strong>handle taken · suggest</div>
+    </div>
+
+    <div class="phone dark">
+      <div class="notch"></div>
+      <div class="status"><span class="l">10:58</span><span class="r"><span>—</span><span>⌃</span><span class="bar"></span></span></div>
+      <div class="screen">
+        <div style="flex:1"></div>
+        <div style="text-align:center;padding:0 16px;">
+          <div style="font-size:48px;color:var(--text-night-3);margin-bottom:8px;">⚠</div>
+          <div style="font-family:-apple-system,'SF Pro Rounded';font-weight:800;font-size:22px;color:#fff;">Can't reach Trakrr.</div>
+          <div style="font-family:var(--pen);font-size:13px;color:var(--text-night-2);margin-top:8px;">Sign-in needs internet. We'll wait.</div>
+        </div>
+        <div style="flex:1"></div>
+        <div class="btn huge" style="background:#fff;color:#000;border-color:#fff;">Try again</div>
+        <div style="height:48px"></div>
+      </div>
+      <div class="label"><strong>01.E</strong>offline at sign-in</div>
+    </div>
+
+    <div class="notes dark" style="max-width: 280px; background: #14130f; padding: 16px; border-radius: 12px;">
+      <h4 style="color:#fff;">Voice on edge states</h4>
+      <ol>
+        <li><span class="num">1</span><b style="color:#fff;">"taken"</b> — one word. Not "Sorry, that handle is already in use by another user."</li>
+        <li><span class="num">2</span><b style="color:#fff;">"Can't reach Trakrr."</b> — names the actor. Not "Network error."</li>
+        <li><span class="num">3</span><b style="color:#fff;">"We'll wait."</b> — observational, not pleading. The app isn't anxious.</li>
+        <li><span class="num">4</span>No retry counters. No exponential-backoff messaging. The button works when you tap it.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+</body>
+</html>
